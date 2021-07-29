@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author rtspi
+ * @author juhip
  */
 public class GOVTAdminManageEmployeesJPanel extends javax.swing.JPanel {
 

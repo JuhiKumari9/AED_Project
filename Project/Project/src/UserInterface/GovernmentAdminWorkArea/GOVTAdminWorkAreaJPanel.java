@@ -9,30 +9,33 @@ import UserInterface.FinanceAdminWorkArea.*;
 import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
  *
- * @author rtspi
+ * @author juhip
  */
 public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     Enterprise enterprise;
     Ecosystem system;
+    UserAccount useraccount;
     Organization organization;
 
     /**
      * Creates new form FinanceAdminWorkAreaJPanel
      */
-    public GOVTAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, Ecosystem system, Organization organization) {
+    public GOVTAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.system = system;
-        this.organization = organization;
+        this.useraccount = useraccount;
+        this.organization = org;
         manageOrganization();
     }
 
@@ -145,8 +148,7 @@ public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(governmentAdminJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(governmentAdminJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rightGovernmentAdminJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1014, Short.MAX_VALUE))
         );

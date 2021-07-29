@@ -8,6 +8,7 @@ package UserInterface.FinanceAdminWorkArea;
 import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -20,18 +21,20 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     Enterprise enterprise;
+    UserAccount useraccount;
+    Organization org;
     Ecosystem system;
-    Organization organization;
 
     /**
      * Creates new form FinanceAdminWorkAreaJPanel
      */
-    public FinanceAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, Ecosystem system, Organization organization) {
+    public FinanceAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.system = system;
-        this.organization = organization;
+        this.org = org;
         manageOrganization();
     }
 

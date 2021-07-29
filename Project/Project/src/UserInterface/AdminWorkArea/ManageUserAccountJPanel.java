@@ -251,8 +251,8 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         }
         else
         {
-            organization.getUserAccountDirectory().createAndAddAccount(userId, password, employee, role);
-            JOptionPane.showMessageDialog(null,"UserAccount created successfully","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+//            organization.getUserAccountDirectory().createAndAddAccount(userId, password, role);
+//            JOptionPane.showMessageDialog(null,"UserAccount created successfully","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
             //popUserData();
         }
     }//GEN-LAST:event_btnCreateAccountActionPerformed

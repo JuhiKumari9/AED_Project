@@ -27,22 +27,17 @@ public class UserAccountDirectory {
     
     public UserAccount authenticateUser(String username, String password){        
         for (UserAccount useraccount : userAccountList) {
-             System.out.println("User Name******** "+useraccount.getUsername());
-            System.out.println("Password********* "+useraccount.getPassword());
+//             System.out.println("User Name******** "+useraccount.getUsername());
+//            System.out.println("Password********* "+useraccount.getPassword());
             if (useraccount.getUsername().equals(username) && useraccount.getPassword().equals(password)){
                 return useraccount;
             }
         }
         return null;
     } 
-    public UserAccount createAndAddAccount(String UserName, String password, Employee epm, Role role){
-        UserAccount userAccount = new UserAccount();
-        userAccount.setUsername(UserName);
-        userAccount.setPassword(password);
-        userAccount.setEmployee(epm);
-        userAccount.setRole(role);
-        userAccountList.add(userAccount);
-        return userAccount;  
+    public void addAccount(UserAccount useraccount){
+        userAccountList.add(useraccount);
+        System.out.println("Password********* "+useraccount.getPassword());
     }
     public boolean checkIfUsernameIsUnique(String username){
         for (UserAccount ua : userAccountList){

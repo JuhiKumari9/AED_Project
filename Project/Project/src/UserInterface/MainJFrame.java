@@ -202,7 +202,7 @@ public class MainJFrame extends javax.swing.JFrame {
             for(Network net:system.getNetworkList()){
                 //Step 2.a: check against each enterprise
                 for(Enterprise ent:net.getEnterpriseDirectory().getEntList()){
-                    userAcct=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
+                    userAcct=ent.getUserAccountDirectory().authenticateUser(userName, password);
                     if(userAcct==null){
                        //Step 3:check against each organization for each enterprise
                        for(Organization org:ent.getOrganizationDirectory().getOrgList()){

@@ -78,7 +78,7 @@ public class UserAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnEnterPriseAdmin_JPanel.setBackground(new java.awt.Color(153, 255, 153));
         btnEnterPriseAdmin_JPanel.setToolTipText("");
 
-        btnRequest.setText("Request Physciatric Help");
+        btnRequest.setText("Make Pshychiatric Request");
         btnRequest.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnRequestMousePressed(evt);
@@ -169,8 +169,8 @@ public class UserAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
         // TODO add your handling code here:
-        UserRegistrationJPanel userRegistrationJPanel=new UserRegistrationJPanel(workAreaJPanel,ecosystem, userAccount);
-        workAreaJPanel.add("userRegistrationJPanel", userRegistrationJPanel);
+        UserDetailsJPanel userDetails=new UserDetailsJPanel(workAreaJPanel,ecosystem, userAccount);
+        workAreaJPanel.add("userDetails", userDetails);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnDashboardActionPerformed
