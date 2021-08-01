@@ -38,8 +38,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEntList()) {
                 Object[] row = new Object[3];
-                row[0] = enterprise.getName();
-                row[1] = network.getName();
+                row[0] = network.getName();
+                row[1] = enterprise;
                 row[2] = enterprise.getEnterpriseType().getValue();
 
                 model.addRow(row);
@@ -236,7 +236,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         Network network = (Network) networkComboBox.getSelectedItem();
         Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseComboBox.getSelectedItem();
-
+        System.out.println(type);
         if (network == null || type == null) {
             JOptionPane.showMessageDialog(null, "Please select a valid Network & Enterprise ", "WARNING", JOptionPane.WARNING_MESSAGE);
             return;

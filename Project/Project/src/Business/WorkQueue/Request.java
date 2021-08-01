@@ -5,6 +5,8 @@
  */
 package Business.WorkQueue;
 
+import Business.TestDefiner.TestDirectory;
+import Business.User.TestResultDirectory;
 import Business.User.User;
 import java.util.Random;
 
@@ -24,6 +26,10 @@ public class Request {
     private String requestId;
     private User user;
     private String status;
+    private TestDirectory userAssignedTestDirectory;
+    private TestReportDirectory testReportDirectory;
+    private TestResultDirectory testResultDirectory;
+    private PrescriptionDirectory prescriptionDirectry;
 
     public Request(String reasonForTreatment) {
         Random rnd = new Random();
@@ -119,6 +125,37 @@ public class Request {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public TestDirectory getUserAssignedTestDirectory() {
+        if(userAssignedTestDirectory == null){
+            userAssignedTestDirectory = new TestDirectory();
+        }
+        return userAssignedTestDirectory;
+    }
+
+    public TestReportDirectory getTestReportDirectory() {
+        if(testReportDirectory == null){
+            testReportDirectory = new TestReportDirectory();
+        }
+        return testReportDirectory;
+    }
+
+    public TestResultDirectory getTestResultDirectory() {
+         if(testResultDirectory == null){
+            testResultDirectory = new TestResultDirectory();
+        }
+        return testResultDirectory;
+    }
+
+    public PrescriptionDirectory getPrescriptionDirectry() {
+        if(prescriptionDirectry == null){
+            prescriptionDirectry = new PrescriptionDirectory();
+        }
+        return prescriptionDirectry;
+    }
+    
+    
+    
     
     @Override
     public String toString() {

@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UserInterface.FinanceAdminWorkArea.FinanceAdminWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -20,7 +21,7 @@ public class FinanceEnterpriseAdmin extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem system, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new FinanceAdminWorkAreaJPanel(userProcessContainer,account,organization,enterprise,system);
     }
     
     @Override

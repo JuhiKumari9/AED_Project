@@ -17,22 +17,28 @@ public class UserAccount {
     private String username;
     private String password;
     private String name;
-    private Employee employee;
+//    private Employee employee;
     private Role role;
-    private WorkQueue workQueue;
+//    private WorkQueue workQueue;
 
+    public UserAccount(String username, String password, String name, Role role) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.role = role;
+    }
 
     public UserAccount() {
-        workQueue = new WorkQueue();
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
+//    public Employee getEmployee() {
+//        return employee;
+//    }
+//
+//    public void setEmployee(Employee employee) {
+//        this.employee = employee;
+//    }
 
     public Role getRole() {
         return role;

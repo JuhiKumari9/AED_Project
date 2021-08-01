@@ -128,6 +128,15 @@ public class Ecosystem extends Organization{
         return userDirectory;
     }
     
+    public boolean checkIfNetworkIsUnique(String name){
+        for(Network network : networkList){
+            if(network.getName().equalsIgnoreCase(name)){
+                return false;
+            }
+        }
+        return true;
+    }
+    
     
     
 }

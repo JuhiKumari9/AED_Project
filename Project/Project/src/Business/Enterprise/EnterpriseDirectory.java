@@ -31,16 +31,16 @@ public class EnterpriseDirectory {
     
     public Enterprise createAndAddEnterprise(String name,Enterprise.EnterpriseType type){
         Enterprise enterprise=null;
-        if(type==Enterprise.EnterpriseType.DoctorEnterprise){
-            enterprise=new DoctorEnterprise(name);
+        if(type==Enterprise.EnterpriseType.MedicalProfessionalsEnterprise){
+            enterprise=new MedicalProfessionalsEnterprise(name);
             entList.add(enterprise);
         }
         else if(type==Enterprise.EnterpriseType.FinanceEnterprise){
             enterprise=new FinanceEnterprise(name);
             entList.add(enterprise);
         }
-        else if(type==Enterprise.EnterpriseType.TestingEnterprise){
-            enterprise=new TestingEnterprise(name);
+        else if(type==Enterprise.EnterpriseType.TestProviderEnterprise){
+            enterprise=new TestProviderEnterprise(name);
             entList.add(enterprise);
         }
         else if(type==Enterprise.EnterpriseType.GOVTEnterprise){

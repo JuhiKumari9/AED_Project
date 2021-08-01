@@ -20,12 +20,12 @@ public class FinanceEnterprise extends Enterprise {
 
     @Override
     public ArrayList<Role> getSupportedRole() {
-        roles = new ArrayList<Role>();
+//        roles = new ArrayList<Role>();
 //        roles.add(new BGAdmin());
 //        roles.add(new FinanceEnterpriseAdmin());
 //        roles.add(new VolunteeringHead());
 //        roles.add(new Distributor());
-        return roles; //To change body of generated methods, choose Tools | Templates.
+        return null; //To change body of generated methods, choose Tools | Templates.
     }
     
 }

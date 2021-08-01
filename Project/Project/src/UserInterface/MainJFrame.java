@@ -10,6 +10,8 @@ import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Role.FinanceEnterpriseAdmin;
+import Business.Role.GOVTEnterpriseAdmin;
 import Business.UserAccount.UserAccount;
 import UserInterface.User.UserRegistrationJPanel;
 import java.awt.CardLayout;
@@ -41,7 +43,15 @@ public class MainJFrame extends javax.swing.JFrame {
      private void switchPanel(){
          
          if(userAcct!= null && userAcct.getRole()!=null){
-             workSpaceJPanel.add("workArea", userAcct.getRole().createWorkArea(workSpaceJPanel, userAcct, organization, enterprise,system, network ));
+             if(userAcct.getRole() instanceof FinanceEnterpriseAdmin){
+                workSpaceJPanel.add("workArea", userAcct.getRole().createWorkArea(workSpaceJPanel, userAcct, organization, enterprise,system, network ));
+             }
+             else if(userAcct.getRole() instanceof GOVTEnterpriseAdmin){
+                workSpaceJPanel.add("workArea", userAcct.getRole().createWorkArea(workSpaceJPanel, userAcct, organization, enterprise,system, network ));
+             }
+             else{
+                workSpaceJPanel.add("workArea", userAcct.getRole().createWorkArea(workSpaceJPanel, userAcct, organization, enterprise,system, network ));
+             }
          }
          CardLayout layout = (CardLayout) workSpaceJPanel.getLayout();
             layout.next(workSpaceJPanel);
@@ -202,7 +212,7 @@ public class MainJFrame extends javax.swing.JFrame {
             for(Network net:system.getNetworkList()){
                 //Step 2.a: check against each enterprise
                 for(Enterprise ent:net.getEnterpriseDirectory().getEntList()){
-                    userAcct=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
+                    userAcct=ent.getUserAccountDirectory().authenticateUser(userName, password);
                     if(userAcct==null){
                        //Step 3:check against each organization for each enterprise
                        for(Organization org:ent.getOrganizationDirectory().getOrgList()){

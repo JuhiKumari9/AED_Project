@@ -135,7 +135,7 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="btnRequest">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Request Physciatric Help"/>
+                    <Property name="text" type="java.lang.String" value="Make Pshychiatric Request"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRequestMousePressed"/>

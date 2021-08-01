@@ -28,10 +28,10 @@ public abstract class Enterprise extends Organization{
         organizationDirectory =  new OrganizationDirectory();
     }
      public enum EnterpriseType{
-        DoctorEnterprise("Doctor"),
-        FinanceEnterprise("Finance"),
-        TestingEnterprise("Testing"),
-        GOVTEnterprise("NGO"),
+        MedicalProfessionalsEnterprise("MedicalProfessionals"),
+        FinanceEnterprise("FinanceEnterprise"),
+        TestProviderEnterprise("TestProviderEnterprise"),
+        GOVTEnterprise("GovernmentEnterprise"),
      //  Government("Government")
         ;
         private String value;
@@ -44,7 +44,7 @@ public abstract class Enterprise extends Organization{
         }
         @Override
         public String toString(){
-        return value;
+        return getValue();
     }
     }
 

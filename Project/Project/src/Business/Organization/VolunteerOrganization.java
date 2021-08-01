@@ -25,7 +25,7 @@ public class VolunteerOrganization extends Organization{
 
     @Override
     public Type getType() {
-        return Organization.Type.Volunteer; //To change body of generated methods, choose Tools | Templates.
+        return Organization.Type.VolunteerOrganization; //To change body of generated methods, choose Tools | Templates.
     }
     
     

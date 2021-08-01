@@ -5,6 +5,7 @@
  */
 package Business.User;
 
+import Business.Network.Network;
 import Business.Person.Person;
 import Business.Role.Role;
 import Business.WorkQueue.RequestDirectory;
@@ -18,9 +19,11 @@ public class User extends Person{
   private MedicalDetails medicalDetails;
   private String userType;
   private RequestDirectory requestDirectory;
-    public User( String name, String contactNumber, String zipcode, String city, String gender, String userName, String password, String dateOfBirthe, String state, String country, String email, String userType,Role role) {
+  private Network network;
+    public User( String name, String contactNumber, String zipcode, String city, String gender, String userName, String password, String dateOfBirthe, String state, String country, String email, String userType,Role role, Network network) {
         super(name, contactNumber, zipcode, city, gender, userName, password, dateOfBirthe, state, country, email, role);
         this.userType = userType;
+        this.network = network;
     }
 
     public MedicalDetails getMedicalDetails() {
@@ -43,6 +46,14 @@ public class User extends Person{
             requestDirectory = new RequestDirectory();
         }
         return requestDirectory;
+    }
+
+    public Network getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(Network network) {
+        this.network = network;
     }
     
     

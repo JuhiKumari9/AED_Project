@@ -8,6 +8,7 @@ package UserInterface.FinanceAdminWorkArea;
 import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -20,18 +21,20 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     Enterprise enterprise;
+    UserAccount useraccount;
+    Organization org;
     Ecosystem system;
-    Organization organization;
 
     /**
      * Creates new form FinanceAdminWorkAreaJPanel
      */
-    public FinanceAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, Ecosystem system, Organization organization) {
+    public FinanceAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.system = system;
-        this.organization = organization;
+        this.org = org;
         manageOrganization();
     }
 
@@ -39,7 +42,7 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageOrganization.setBackground(new Color(236,113,107));
         lblManageEmployees.setBackground(new Color(215,81,81));
         lblManageUnits.setBackground(new Color(215,81,81));
-        FinanceAdminManageOrganizationJPanel manageOrganizationJPanel = new FinanceAdminManageOrganizationJPanel(rightFinanceAdminJPanel, enterprise);
+        FinanceAdminManageOrganizationJPanel manageOrganizationJPanel = new FinanceAdminManageOrganizationJPanel(rightFinanceAdminJPanel, enterprise, enterprise.getOrganizationDirectory());
         rightFinanceAdminJPanel.add("FinanceAdminManageOrganizationJPanel", manageOrganizationJPanel);
         CardLayout layout = (CardLayout) rightFinanceAdminJPanel.getLayout();
         layout.next(rightFinanceAdminJPanel);
@@ -49,7 +52,7 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageEmployees.setBackground(new Color(236,113,107));
         lblManageOrganization.setBackground(new Color(215,81,81));
         lblManageUnits.setBackground(new Color(215,81,81));
-        FinanceAdminManageEmployeesJPanel manageEmployeeJPanel = new FinanceAdminManageEmployeesJPanel(rightFinanceAdminJPanel, enterprise);
+        FinanceAdminManageEmployeesJPanel manageEmployeeJPanel = new FinanceAdminManageEmployeesJPanel(rightFinanceAdminJPanel, enterprise, enterprise.getOrganizationDirectory());
         rightFinanceAdminJPanel.add("FinanceAdminManageEmployeeJPanel", manageEmployeeJPanel);
         CardLayout layout = (CardLayout) rightFinanceAdminJPanel.getLayout();
         layout.next(rightFinanceAdminJPanel);
@@ -60,7 +63,7 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageUnits.setBackground(new Color(236,113,107));
         lblManageOrganization.setBackground(new Color(215,81,81));
         lblManageEmployees.setBackground(new Color(215,81,81));      
-        FinanceAdminManageUnitsJPanel muajp = new FinanceAdminManageUnitsJPanel(rightFinanceAdminJPanel, enterprise);
+        FinanceAdminManageUnitJPanel muajp = new FinanceAdminManageUnitJPanel(rightFinanceAdminJPanel, enterprise);
         rightFinanceAdminJPanel.add("FinanceAdminManageUserAccountJPanel", muajp);
         CardLayout layout = (CardLayout) rightFinanceAdminJPanel.getLayout();
         layout.next(rightFinanceAdminJPanel);

@@ -9,9 +9,10 @@ package UserInterface.User;
 
 import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
+import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
-import Business.Role.UserRole;
+import Business.Role.GeneralTherapistRole;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.Request;
@@ -169,16 +170,27 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
             return;
         }else{
             User user = system.getUserDirectory().findUserByUserName(userAccount.getUsername());
+            
+        Network network = user.getNetwork();
+        Organization organization = null;
+        for(Enterprise ent : network.getEnterpriseDirectory().getEntList()){
+            for(Organization org : ent.getOrganizationDirectory().getOrgList()){
+                if(org.getType().getValue().equalsIgnoreCase("Online Receptionist")){
+                    organization = org;
+                }
+            }    
+    }
             request.setPreferedPsychiatristGender(res);
             request.setState(res2);
             request.setStatus("New");
             request.setUser(user);
             user.getRequestDirectory().getRequestList().add(request);
+            organization.getRequestDirectory().getRequestList().add(request);
             JOptionPane.showMessageDialog(null, "Request generated successfully!");
-        RequestDetailsJPanel requestDetails=new RequestDetailsJPanel(userProcessContainer,system,userAccount);
-        userProcessContainer.add("requestDetails", requestDetails);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+            RequestDetailsJPanel requestDetails=new RequestDetailsJPanel(userProcessContainer,system,userAccount);
+            userProcessContainer.add("requestDetails", requestDetails);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
         } 
     }//GEN-LAST:event_jButton1ActionPerformed
 

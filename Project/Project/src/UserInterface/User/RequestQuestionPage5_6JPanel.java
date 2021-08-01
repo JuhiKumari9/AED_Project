@@ -11,7 +11,7 @@ import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
-import Business.Role.UserRole;
+import Business.Role.GeneralTherapistRole;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.Request;

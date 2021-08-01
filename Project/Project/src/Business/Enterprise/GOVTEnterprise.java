@@ -20,11 +20,11 @@ public class GOVTEnterprise extends Enterprise{
 
     @Override
     public ArrayList<Role> getSupportedRole() {
-        roles = new ArrayList<Role>();
-//        roles.add(new GOVTEnterpriseAdmin());
-//        roles.add(new GOVTExecutive());
-//        
-        return roles; //To change body of generated methods, choose Tools | Templates.
+//        roles = new ArrayList<Role>();
+////        roles.add(new GOVTEnterpriseAdmin());
+////        roles.add(new GOVTExecutive());
+////        
+        return null; //To change body of generated methods, choose Tools | Templates.
     }
     
     

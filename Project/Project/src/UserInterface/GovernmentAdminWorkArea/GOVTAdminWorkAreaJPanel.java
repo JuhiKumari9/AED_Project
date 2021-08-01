@@ -9,30 +9,33 @@ import UserInterface.FinanceAdminWorkArea.*;
 import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
  *
- * @author rtspi
+ * @author juhip
  */
 public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     Enterprise enterprise;
     Ecosystem system;
+    UserAccount useraccount;
     Organization organization;
 
     /**
      * Creates new form FinanceAdminWorkAreaJPanel
      */
-    public GOVTAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, Ecosystem system, Organization organization) {
+    public GOVTAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, Ecosystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.system = system;
-        this.organization = organization;
+        this.useraccount = useraccount;
+        this.organization = org;
         manageOrganization();
     }
 
@@ -40,8 +43,8 @@ public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageOrganization.setBackground(new Color(236,113,107));
         lblManageEmployees.setBackground(new Color(215,81,81));
         lblManageUnits.setBackground(new Color(215,81,81));
-        GOVTAdminManageOrganizationJPanel manageOrganizationJPanel = new GOVTAdminManageOrganizationJPanel(rightGovernmentAdminJPanel, enterprise);
-        rightGovernmentAdminJPanel.add("FinanceAdminManageOrganizationJPanel", manageOrganizationJPanel);
+        GOVTAdminManageOrganizationJPanel manageOrganizationJPanel = new GOVTAdminManageOrganizationJPanel(rightGovernmentAdminJPanel, enterprise, enterprise.getOrganizationDirectory());
+        rightGovernmentAdminJPanel.add("GOVTAdminManageOrganizationJPanel", manageOrganizationJPanel);
         CardLayout layout = (CardLayout) rightGovernmentAdminJPanel.getLayout();
         layout.next(rightGovernmentAdminJPanel);
     }
@@ -50,8 +53,8 @@ public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageEmployees.setBackground(new Color(236,113,107));
         lblManageOrganization.setBackground(new Color(215,81,81));
         lblManageUnits.setBackground(new Color(215,81,81));
-        GOVTAdminManageEmployeesJPanel manageEmployeeJPanel = new GOVTAdminManageEmployeesJPanel(rightGovernmentAdminJPanel, enterprise);
-        rightGovernmentAdminJPanel.add("FinanceAdminManageEmployeeJPanel", manageEmployeeJPanel);
+        GOVTAdminManageEmployeesJPanel manageEmployeeJPanel = new GOVTAdminManageEmployeesJPanel(rightGovernmentAdminJPanel, enterprise,enterprise.getOrganizationDirectory());
+        rightGovernmentAdminJPanel.add("GOVTAdminManageEmployeeJPanel", manageEmployeeJPanel);
         CardLayout layout = (CardLayout) rightGovernmentAdminJPanel.getLayout();
         layout.next(rightGovernmentAdminJPanel);
     }
@@ -61,8 +64,8 @@ public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageUnits.setBackground(new Color(236,113,107));
         lblManageOrganization.setBackground(new Color(215,81,81));
         lblManageEmployees.setBackground(new Color(215,81,81));      
-        GOVTAdminManageUnitsJPanel muajp = new GOVTAdminManageUnitsJPanel(rightGovernmentAdminJPanel, enterprise);
-        rightGovernmentAdminJPanel.add("FinanceAdminManageUserAccountJPanel", muajp);
+        GOVTAdminManageUnitJPanel muajp = new GOVTAdminManageUnitJPanel(rightGovernmentAdminJPanel, enterprise);
+        rightGovernmentAdminJPanel.add("GOVTAdminManageUserAccountJPanel", muajp);
         CardLayout layout = (CardLayout) rightGovernmentAdminJPanel.getLayout();
         layout.next(rightGovernmentAdminJPanel);
     }
@@ -145,8 +148,7 @@ public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(governmentAdminJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(governmentAdminJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rightGovernmentAdminJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1014, Short.MAX_VALUE))
         );

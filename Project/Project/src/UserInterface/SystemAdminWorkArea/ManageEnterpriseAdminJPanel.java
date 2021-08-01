@@ -11,8 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Role.FinanceEnterpriseAdmin;
 import Business.Role.GOVTEnterpriseAdmin;
-import Business.Role.DoctorEnterpriseAdmin;
-import Business.Role.TestingEnterpriseAdmin;
+import Business.Role.MedicalProfessionalAdminRole;
 import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -134,6 +133,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel3.setText("Enterprise:");
 
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseJComboBoxActionPerformed(evt);
+            }
+        });
 
         submitJButton.setBackground(new java.awt.Color(255, 51, 51));
         submitJButton.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
@@ -243,58 +247,43 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_networkJComboBoxActionPerformed
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-        Enterprise enterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
+      Enterprise enterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
+
         String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         String name = nameJTextField.getText();
-
-        if (username.trim().equalsIgnoreCase("")||password.trim().equalsIgnoreCase("")||name.trim().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Please enter valid name!");
+        Boolean unique=system.getUserAccountDirectory().checkIfUsernameIsUnique(username);
+        if(!unique){
+            JOptionPane.showMessageDialog(null, "Username" + username + " already exists. Please try with different username", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-//        if(!username.matches("[A-Za-z0-9]+"))
-//        {
-//            JOptionPane.showMessageDialog(null,"Please enter valid userid","WARNING",JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
-//        if(!password.matches(".{6,20}"))
-//        {
-//            JOptionPane.showMessageDialog(null,"Password length must be between 6 and 20 characters","WARNING",JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
-//        if(!name.matches("[A-Za-z]+"))
-//        {
-//            JOptionPane.showMessageDialog(null,"Please enter valid  name","WARNING",JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
-        else{
-            Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
-        
-            if (system.checkUserIdExists(username)) {
-                UserAccount account = null;
-                if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.DoctorEnterprise) {
-                    account = enterprise.getUserAccountDirectory().createAndAddAccount(username, password, employee, new DoctorEnterpriseAdmin());
-                } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.FinanceEnterprise) {
-                    account = enterprise.getUserAccountDirectory().createAndAddAccount(username, password, employee, new FinanceEnterpriseAdmin());
-                } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.TestingEnterprise) {
-                    account = enterprise.getUserAccountDirectory().createAndAddAccount(username, password, employee, new TestingEnterpriseAdmin());
-                } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.GOVTEnterprise) {
-                    account = enterprise.getUserAccountDirectory().createAndAddAccount(username, password, employee, new GOVTEnterpriseAdmin());
-                }
-                usernameJTextField.setText("");
-                passwordJPasswordField.setText("");
-                nameJTextField.setText("");
-                JOptionPane.showMessageDialog(null, "Account created sucessfully");
-                populateTable();
-            }else {
-                JOptionPane.showMessageDialog(null, "Please enter unique username", "Warning", JOptionPane.WARNING_MESSAGE);
+//        Employee employee = enterprise.getEmpDir().createEmp(name);
+        if(enterprise.getEnterpriseType()!=null){
+            System.out.println(enterprise.getEnterpriseType().toString());
+            if(enterprise.getEnterpriseType().toString().equals("MedicalProfessionals"))
+            {
+                UserAccount useraccount = new UserAccount(username, password, name, new MedicalProfessionalAdminRole());
+                enterprise.getUserAccountDirectory().addAccount(useraccount);
+                JOptionPane.showMessageDialog(null, "User Account created successfully");
+                
+                //enterprise.getUserAccountDir().addUserAccount(account);
+               // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new HospitalEntAdminRole());
             }
+            else if(enterprise.getEnterpriseType().toString().equals("FinanceEnterprise"))
+            {
+                UserAccount useraccount = new UserAccount(username, password, name, new FinanceEnterpriseAdmin());
+                enterprise.getUserAccountDirectory().addAccount(useraccount);
+                JOptionPane.showMessageDialog(null, "User Account created successfully");
+            }
+            else if(enterprise.getEnterpriseType().toString().equals("GovernmentEnterprise"))
+            {
+                UserAccount useraccount = new UserAccount(username, password, name, new GOVTEnterpriseAdmin());
+                enterprise.getUserAccountDirectory().addAccount(useraccount);
+                JOptionPane.showMessageDialog(null, "User Account created successfully");
+            }
+            
         }
-//        Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
-//
-//        UserAccount account = enterprise.getUserAccountDirectory().createAndAddAccount(username, password, employee, new AdminRole());
-//        JOptionPane.showMessageDialog(null,"User account created successfully");
-        //populateTable();
+        populateTable();
 
     }//GEN-LAST:event_submitJButtonActionPerformed
 
@@ -307,6 +296,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 //        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
 //        layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
+
+    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
