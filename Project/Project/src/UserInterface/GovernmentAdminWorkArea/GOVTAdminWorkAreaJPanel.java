@@ -43,8 +43,8 @@ public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageOrganization.setBackground(new Color(236,113,107));
         lblManageEmployees.setBackground(new Color(215,81,81));
         lblManageUnits.setBackground(new Color(215,81,81));
-        GOVTAdminManageOrganizationJPanel manageOrganizationJPanel = new GOVTAdminManageOrganizationJPanel(rightGovernmentAdminJPanel, enterprise);
-        rightGovernmentAdminJPanel.add("FinanceAdminManageOrganizationJPanel", manageOrganizationJPanel);
+        GOVTAdminManageOrganizationJPanel manageOrganizationJPanel = new GOVTAdminManageOrganizationJPanel(rightGovernmentAdminJPanel, enterprise, enterprise.getOrganizationDirectory());
+        rightGovernmentAdminJPanel.add("GOVTAdminManageOrganizationJPanel", manageOrganizationJPanel);
         CardLayout layout = (CardLayout) rightGovernmentAdminJPanel.getLayout();
         layout.next(rightGovernmentAdminJPanel);
     }
@@ -53,8 +53,8 @@ public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageEmployees.setBackground(new Color(236,113,107));
         lblManageOrganization.setBackground(new Color(215,81,81));
         lblManageUnits.setBackground(new Color(215,81,81));
-        GOVTAdminManageEmployeesJPanel manageEmployeeJPanel = new GOVTAdminManageEmployeesJPanel(rightGovernmentAdminJPanel, enterprise);
-        rightGovernmentAdminJPanel.add("FinanceAdminManageEmployeeJPanel", manageEmployeeJPanel);
+        GOVTAdminManageEmployeesJPanel manageEmployeeJPanel = new GOVTAdminManageEmployeesJPanel(rightGovernmentAdminJPanel, enterprise,enterprise.getOrganizationDirectory());
+        rightGovernmentAdminJPanel.add("GOVTAdminManageEmployeeJPanel", manageEmployeeJPanel);
         CardLayout layout = (CardLayout) rightGovernmentAdminJPanel.getLayout();
         layout.next(rightGovernmentAdminJPanel);
     }
@@ -64,8 +64,8 @@ public class GOVTAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageUnits.setBackground(new Color(236,113,107));
         lblManageOrganization.setBackground(new Color(215,81,81));
         lblManageEmployees.setBackground(new Color(215,81,81));      
-        GOVTAdminManageUnitsJPanel muajp = new GOVTAdminManageUnitsJPanel(rightGovernmentAdminJPanel, enterprise);
-        rightGovernmentAdminJPanel.add("FinanceAdminManageUserAccountJPanel", muajp);
+        GOVTAdminManageUnitJPanel muajp = new GOVTAdminManageUnitJPanel(rightGovernmentAdminJPanel, enterprise);
+        rightGovernmentAdminJPanel.add("GOVTAdminManageUserAccountJPanel", muajp);
         CardLayout layout = (CardLayout) rightGovernmentAdminJPanel.getLayout();
         layout.next(rightGovernmentAdminJPanel);
     }

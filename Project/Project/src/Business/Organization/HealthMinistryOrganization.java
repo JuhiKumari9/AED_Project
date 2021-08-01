@@ -25,7 +25,7 @@ public class HealthMinistryOrganization extends Organization {
 
     @Override
     public Type getType() {
-        return Organization.Type.HealthMinistry; //To change body of generated methods, choose Tools | Templates.
+        return Organization.Type.HealthMinistryOrganization; //To change body of generated methods, choose Tools | Templates.
     }
     
     

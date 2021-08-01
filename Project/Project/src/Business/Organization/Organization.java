@@ -4,12 +4,18 @@
  * and open the template in the editor.
  */
 package Business.Organization;
+import Business.BGAdmin.BGAdminDirectory;
+import Business.Distributor.DistributorDirectory;
 import Business.Employee.EmployeeDirectory;
+import Business.Executive.ExecutiveDirectory;
 import Business.ExpertTherapist.ExpertTherapistDirectory;
 import Business.GeneralTherapist.GeneralTherapistDirectory;
+import Business.HealthMinistryRepresentative.RepresentativeDirectory;
 import Business.OnlineReceptionist.OnlineReceptionistDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
+import Business.VolunteeringHead.VolunteeringHead;
+import Business.VolunteeringHead.VolunteeringHeadDirectory;
 import Business.WorkQueue.RequestDirectory;
 import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
@@ -29,6 +35,11 @@ public abstract class Organization {
     private GeneralTherapistDirectory generalTherapistDirectory;
     private ExpertTherapistDirectory expertTherapistDirectory;
     private OnlineReceptionistDirectory onlineReceptionistDirectory;
+    private BGAdminDirectory bgAdminDirectory;
+    private VolunteeringHeadDirectory volunteeringHeadDirectory;
+    private DistributorDirectory distributorDirectory;
+    private ExecutiveDirectory executiveDirectory;
+    private RepresentativeDirectory representativeDirectory;
   
     public Organization(String name) {
         this.name = name;
@@ -50,17 +61,11 @@ public abstract class Organization {
    
     public enum Type{
         Admin("Admin Organization"),
-        PrimaryCareProvider("PrimaryCareProvider Organization"),
-        Doctor("Doctor Organization"),
-        LabReport("Lab Reporting Organization"),
-        BackgroundCheck("Background Check Organisation"),
-        Ration("Ration Organization"),
-        Volunteer("Volunteer Organization"),
-        MentalWellnessOverview("Mental Wellness Organization"),
-        Facilitator("Counselling Facilitator Organization"),
-        Counselling("Counselling Organization"),
-        HealthMinistry("Ministry of Health Organization"),
-        Coordinator("Coordinator Organization"),
+        BackgroundCheckOrganization("Background Check Organisation"),
+        RationingOrganization("Ration Organization"),
+        VolunteerOrganization("Volunteer Organization"),
+        ExecutiveOrganization("Executive Organization"),
+        GOVTRepresentativeOrganization("GOVT Representative Organization"),
         OnlineReceptionistOrganization("Online Receptionist"),
         ExpertTherapistOrganization("Expert Therapist"),
         GeneralTherapistOrganization("General Therapist"),
@@ -153,6 +158,63 @@ public abstract class Organization {
         }
         return onlineReceptionistDirectory;
     }
+
+    public BGAdminDirectory getBgAdminDirectory() {
+        if(bgAdminDirectory == null){
+        bgAdminDirectory = new BGAdminDirectory();
+        }
+        return bgAdminDirectory;
+    }
+
+    public void setBgAdminDirectory(BGAdminDirectory bgAdminDirectory) {
+        this.bgAdminDirectory = bgAdminDirectory;
+    }
+
+    public VolunteeringHeadDirectory getVolunteeringHeadDirectory() {
+        if(volunteeringHeadDirectory == null){
+        volunteeringHeadDirectory = new VolunteeringHeadDirectory();
+        }
+        return volunteeringHeadDirectory;
+    }
+
+    public void setVolunteeringHeadDirectory(VolunteeringHeadDirectory volunteeringHeadDirectory) {
+        this.volunteeringHeadDirectory = volunteeringHeadDirectory;
+    }
+
+    public DistributorDirectory getDistributorDirectory() {
+        if(distributorDirectory == null){
+        distributorDirectory = new DistributorDirectory();
+        }
+        return distributorDirectory;
+    }
+
+    public void setDistributorDirectory(DistributorDirectory distributorDirectory) {
+        this.distributorDirectory = distributorDirectory;
+    }
+
+    public ExecutiveDirectory getExecutiveDirectory() {
+        if(executiveDirectory == null){
+        executiveDirectory = new ExecutiveDirectory();
+        }
+        return executiveDirectory;
+    }
+
+    public void setExecutiveDirectory(ExecutiveDirectory executiveDirectory) {
+        this.executiveDirectory = executiveDirectory;
+    }
+
+    public RepresentativeDirectory getRepresentativeDirectory() {
+        if(representativeDirectory == null){
+        representativeDirectory = new RepresentativeDirectory();
+        }
+        return representativeDirectory;
+    }
+
+    public void setRepresentativeDirectory(RepresentativeDirectory representativeDirectory) {
+        this.representativeDirectory = representativeDirectory;
+    }
+    
+    
     
    @Override
         public String toString(){

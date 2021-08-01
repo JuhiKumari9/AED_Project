@@ -55,7 +55,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         this.org = org;
         populateUsCities();
         populateUsStates();
-        networkComboBox.setSelectedIndex(0);
+//        networkComboBox.setSelectedIndex(0);
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {

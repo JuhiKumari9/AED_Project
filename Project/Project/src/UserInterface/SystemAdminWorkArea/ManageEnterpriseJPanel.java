@@ -236,7 +236,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         Network network = (Network) networkComboBox.getSelectedItem();
         Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseComboBox.getSelectedItem();
-
+        System.out.println(type);
         if (network == null || type == null) {
             JOptionPane.showMessageDialog(null, "Please select a valid Network & Enterprise ", "WARNING", JOptionPane.WARNING_MESSAGE);
             return;

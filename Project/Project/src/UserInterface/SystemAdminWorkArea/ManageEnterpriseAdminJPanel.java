@@ -259,6 +259,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         }
 //        Employee employee = enterprise.getEmpDir().createEmp(name);
         if(enterprise.getEnterpriseType()!=null){
+            System.out.println(enterprise.getEnterpriseType().toString());
             if(enterprise.getEnterpriseType().toString().equals("MedicalProfessionals"))
             {
                 UserAccount useraccount = new UserAccount(username, password, name, new MedicalProfessionalAdminRole());

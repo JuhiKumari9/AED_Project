@@ -42,7 +42,7 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageOrganization.setBackground(new Color(236,113,107));
         lblManageEmployees.setBackground(new Color(215,81,81));
         lblManageUnits.setBackground(new Color(215,81,81));
-        FinanceAdminManageOrganizationJPanel manageOrganizationJPanel = new FinanceAdminManageOrganizationJPanel(rightFinanceAdminJPanel, enterprise);
+        FinanceAdminManageOrganizationJPanel manageOrganizationJPanel = new FinanceAdminManageOrganizationJPanel(rightFinanceAdminJPanel, enterprise, enterprise.getOrganizationDirectory());
         rightFinanceAdminJPanel.add("FinanceAdminManageOrganizationJPanel", manageOrganizationJPanel);
         CardLayout layout = (CardLayout) rightFinanceAdminJPanel.getLayout();
         layout.next(rightFinanceAdminJPanel);
@@ -52,7 +52,7 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageEmployees.setBackground(new Color(236,113,107));
         lblManageOrganization.setBackground(new Color(215,81,81));
         lblManageUnits.setBackground(new Color(215,81,81));
-        FinanceAdminManageEmployeesJPanel manageEmployeeJPanel = new FinanceAdminManageEmployeesJPanel(rightFinanceAdminJPanel, enterprise);
+        FinanceAdminManageEmployeesJPanel manageEmployeeJPanel = new FinanceAdminManageEmployeesJPanel(rightFinanceAdminJPanel, enterprise, enterprise.getOrganizationDirectory());
         rightFinanceAdminJPanel.add("FinanceAdminManageEmployeeJPanel", manageEmployeeJPanel);
         CardLayout layout = (CardLayout) rightFinanceAdminJPanel.getLayout();
         layout.next(rightFinanceAdminJPanel);
@@ -63,7 +63,7 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblManageUnits.setBackground(new Color(236,113,107));
         lblManageOrganization.setBackground(new Color(215,81,81));
         lblManageEmployees.setBackground(new Color(215,81,81));      
-        FinanceAdminManageUnitsJPanel muajp = new FinanceAdminManageUnitsJPanel(rightFinanceAdminJPanel, enterprise);
+        FinanceAdminManageUnitJPanel muajp = new FinanceAdminManageUnitJPanel(rightFinanceAdminJPanel, enterprise);
         rightFinanceAdminJPanel.add("FinanceAdminManageUserAccountJPanel", muajp);
         CardLayout layout = (CardLayout) rightFinanceAdminJPanel.getLayout();
         layout.next(rightFinanceAdminJPanel);
