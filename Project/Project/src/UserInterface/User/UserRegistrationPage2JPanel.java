@@ -15,6 +15,7 @@ import Business.User.User;
 import Business.UserAccount.UserAccount;
 import UserInterface.MainJFrame;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -94,6 +95,7 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
         btnMedicalSymptoms = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         selectedMedicalSymptomsJTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,7 +105,20 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Registration");
 
+        btnSubmit.setBackground(new java.awt.Color(0, 255, 204));
+        btnSubmit.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setText("Submit");
+        btnSubmit.setBorder(null);
+        btnSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSubmitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSubmitMouseExited(evt);
+            }
+        });
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
@@ -141,9 +156,23 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(availableReasonsTable);
 
-        jLabel12.setText("Select reasons for treatment");
+        jLabel12.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel12.setText("Select reasons for treatment:");
 
+        btnAddReason.setBackground(new java.awt.Color(0, 255, 204));
+        btnAddReason.setFont(new java.awt.Font("Calibri", 1, 10)); // NOI18N
+        btnAddReason.setForeground(new java.awt.Color(255, 255, 255));
         btnAddReason.setText("Add");
+        btnAddReason.setBorder(null);
+        btnAddReason.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddReason.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddReasonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAddReasonMouseExited(evt);
+            }
+        });
         btnAddReason.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddReasonActionPerformed(evt);
@@ -163,6 +192,7 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(selectedReasonsTable);
 
+        jLabel13.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel13.setText("My Medical conditions:");
 
         availableMedicalConditionJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -193,7 +223,23 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(availableMedicalConditionJTable);
 
+        btnMedConditions.setBackground(new java.awt.Color(0, 255, 204));
+        btnMedConditions.setFont(new java.awt.Font("Calibri", 1, 10)); // NOI18N
+        btnMedConditions.setForeground(new java.awt.Color(255, 255, 255));
         btnMedConditions.setText("Add");
+        btnMedConditions.setBorder(null);
+        btnMedConditions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMedConditions.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMedConditionsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMedConditionsMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMedConditionsMousePressed(evt);
+            }
+        });
         btnMedConditions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMedConditionsActionPerformed(evt);
@@ -213,6 +259,7 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
         ));
         jScrollPane4.setViewportView(selectedMedicalConditionJTable);
 
+        jLabel14.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel14.setText("My Medical Symptoms:");
 
         availableMedicalSymptomsJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -238,7 +285,20 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
         ));
         jScrollPane5.setViewportView(availableMedicalSymptomsJTable);
 
+        btnMedicalSymptoms.setBackground(new java.awt.Color(0, 255, 204));
+        btnMedicalSymptoms.setFont(new java.awt.Font("Calibri", 1, 10)); // NOI18N
+        btnMedicalSymptoms.setForeground(new java.awt.Color(255, 255, 255));
         btnMedicalSymptoms.setText("Add");
+        btnMedicalSymptoms.setBorder(null);
+        btnMedicalSymptoms.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMedicalSymptoms.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMedicalSymptomsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMedicalSymptomsMouseExited(evt);
+            }
+        });
         btnMedicalSymptoms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMedicalSymptomsActionPerformed(evt);
@@ -264,40 +324,43 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnMedConditions, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAddReason, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addGap(108, 108, 108))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnSubmit)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 297, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnMedicalSymptoms)
-                                .addGap(39, 39, 39)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnMedicalSymptoms, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnMedConditions)
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAddReason)
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(108, 108, 108))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                        .addGap(92, 92, 92))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(287, 287, 287)
-                .addComponent(lblDoctorslist1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(287, 287, 287)
+                        .addComponent(lblDoctorslist1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -315,7 +378,7 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(btnAddReason)))
+                        .addComponent(btnAddReason, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,7 +389,7 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(btnMedConditions)))
+                        .addComponent(btnMedConditions, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,13 +400,17 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(btnMedicalSymptoms)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(btnSubmit)
-                .addGap(32, 32, 32))
+                        .addComponent(btnMedicalSymptoms, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 770, 490));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 770, 490));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/registration_page_2.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 380, 320, 300));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddReasonActionPerformed
@@ -415,6 +482,51 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
 //        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnSubmitActionPerformed
 
+    private void btnAddReasonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddReasonMouseEntered
+        // TODO add your handling code here:
+        btnAddReason.setBackground(new Color(0,204,204));
+    }//GEN-LAST:event_btnAddReasonMouseEntered
+
+    private void btnAddReasonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddReasonMouseExited
+        // TODO add your handling code here:
+        btnAddReason.setBackground(new Color(0,255,204));
+    }//GEN-LAST:event_btnAddReasonMouseExited
+
+    private void btnMedConditionsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMedConditionsMouseEntered
+        // TODO add your handling code here:
+        btnMedConditions.setBackground(new Color(0,204,204));
+    }//GEN-LAST:event_btnMedConditionsMouseEntered
+
+    private void btnMedConditionsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMedConditionsMousePressed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_btnMedConditionsMousePressed
+
+    private void btnMedConditionsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMedConditionsMouseExited
+        // TODO add your handling code here:
+        btnMedConditions.setBackground(new Color(0,255,204));
+    }//GEN-LAST:event_btnMedConditionsMouseExited
+
+    private void btnMedicalSymptomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMedicalSymptomsMouseEntered
+        // TODO add your handling code here:
+        btnMedicalSymptoms.setBackground(new Color(0,204,204));
+    }//GEN-LAST:event_btnMedicalSymptomsMouseEntered
+
+    private void btnMedicalSymptomsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMedicalSymptomsMouseExited
+        // TODO add your handling code here:
+        btnMedicalSymptoms.setBackground(new Color(0,255,204));
+    }//GEN-LAST:event_btnMedicalSymptomsMouseExited
+
+    private void btnSubmitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseEntered
+        // TODO add your handling code here:
+        btnSubmit.setBackground(new Color(0,204,204));
+    }//GEN-LAST:event_btnSubmitMouseEntered
+
+    private void btnSubmitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseExited
+        // TODO add your handling code here:
+        btnSubmit.setBackground(new Color(0,255,204));
+    }//GEN-LAST:event_btnSubmitMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable availableMedicalConditionJTable;
@@ -424,6 +536,7 @@ public class UserRegistrationPage2JPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnMedConditions;
     private javax.swing.JButton btnMedicalSymptoms;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

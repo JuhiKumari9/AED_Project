@@ -8,6 +8,7 @@ package UserInterface.SystemAdminWorkArea;
 import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -85,10 +86,13 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         enterpriseComboBox = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
 
-        manageEnterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        manageEnterpriseLabel.setFont(new java.awt.Font("Verdana", 0, 36)); // NOI18N
+        manageEnterpriseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         manageEnterpriseLabel.setText("Manage Enterprises");
 
-        networkLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 16)); // NOI18N
+        networkLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
         networkLabel.setText("Network:");
 
         networkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -116,37 +120,67 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseTable);
 
-        backBtn.setBackground(new java.awt.Color(255, 51, 51));
-        backBtn.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        backBtn.setBackground(new java.awt.Color(0, 255, 204));
+        backBtn.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("Back");
-        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        backBtn.setBorder(null);
+        backBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backBtnMouseExited(evt);
+            }
+        });
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
             }
         });
 
-        createBtn.setBackground(new java.awt.Color(255, 51, 51));
-        createBtn.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        createBtn.setBackground(new java.awt.Color(0, 255, 204));
+        createBtn.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        createBtn.setForeground(new java.awt.Color(255, 255, 255));
         createBtn.setText("Create Enterprise");
-        createBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        createBtn.setBorder(null);
+        createBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                createBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                createBtnMouseExited(evt);
+            }
+        });
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createBtnActionPerformed(evt);
             }
         });
 
-        deleteBtn.setBackground(new java.awt.Color(255, 51, 51));
-        deleteBtn.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        deleteBtn.setBackground(new java.awt.Color(0, 255, 204));
+        deleteBtn.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         deleteBtn.setText("Delete Enterprise");
-        deleteBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        deleteBtn.setBorder(null);
+        deleteBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deleteBtnMouseExited(evt);
+            }
+        });
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBtnActionPerformed(evt);
             }
         });
 
-        enterpriseL.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 16)); // NOI18N
+        enterpriseL.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
         enterpriseL.setText("Enterprise Type:");
 
         enterpriseComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -156,7 +190,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
         jLabel1.setText("Enterprise Name:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -170,26 +204,27 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                         .addComponent(manageEnterpriseLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1053, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1053, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(networkLabel)
-                                    .addComponent(enterpriseL))
-                                .addGap(57, 57, 57)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(networkComboBox, 0, 184, Short.MAX_VALUE)
-                                    .addComponent(enterpriseComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(481, 481, 481)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(createEnterpriseT, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(deleteBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addComponent(createBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(networkLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(enterpriseL, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(networkComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enterpriseComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(backBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createEnterpriseT, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -209,13 +244,16 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterpriseL)
                     .addComponent(enterpriseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addGap(15, 15, 15)
                 .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -273,6 +311,39 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private void enterpriseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enterpriseComboBoxActionPerformed
+
+    private void createBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBtnMouseEntered
+        // TODO add your handling code here:
+        createBtn.setBackground(new Color(0,204,204));
+        
+    }//GEN-LAST:event_createBtnMouseEntered
+
+    private void createBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBtnMouseExited
+        // TODO add your handling code here:
+                createBtn.setBackground(new Color(0,255,204));
+
+    }//GEN-LAST:event_createBtnMouseExited
+
+    private void deleteBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseEntered
+        // TODO add your handling code here:
+        deleteBtn.setBackground(new Color(0,204,204));
+    }//GEN-LAST:event_deleteBtnMouseEntered
+
+    private void deleteBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseExited
+        // TODO add your handling code here:
+        deleteBtn.setBackground(new Color(0,255,204));
+    }//GEN-LAST:event_deleteBtnMouseExited
+
+    private void backBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBtnMouseEntered
+        // TODO add your handling code here:
+        backBtn.setBackground(new Color(0,204,204));
+    }//GEN-LAST:event_backBtnMouseEntered
+
+    private void backBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBtnMouseExited
+        // TODO add your handling code here:
+                backBtn.setBackground(new Color(0,255,204));
+
+    }//GEN-LAST:event_backBtnMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
