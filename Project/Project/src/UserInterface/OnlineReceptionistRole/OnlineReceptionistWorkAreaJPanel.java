@@ -69,7 +69,7 @@ public class OnlineReceptionistWorkAreaJPanel extends javax.swing.JPanel {
         btnEnterPriseAdmin_JPanel1.setBackground(new java.awt.Color(153, 255, 153));
         btnEnterPriseAdmin_JPanel1.setToolTipText("");
 
-        btnDashboard.setText("User Details");
+        btnDashboard.setText("Personal Details");
         btnDashboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDashboardActionPerformed(evt);
@@ -162,7 +162,7 @@ public class OnlineReceptionistWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         // TODO add your handling code here:
-         RequestDetailsJPanel requestDetailsJPanel=new RequestDetailsJPanel(workAreaJPanel,ecosystem, userAccount);
+         ManageAllRequests requestDetailsJPanel=new ManageAllRequests(workAreaJPanel,ecosystem, userAccount, organization, enterprise);
         workAreaJPanel.add("userRegistrationJPanel", requestDetailsJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
@@ -170,7 +170,7 @@ public class OnlineReceptionistWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
         // TODO add your handling code here:
-        UserDetailsJPanel userDetails=new UserDetailsJPanel(workAreaJPanel,ecosystem, userAccount);
+        ManagePersonalDetailsJPanel userDetails=new ManagePersonalDetailsJPanel(workAreaJPanel,ecosystem, organization,enterprise,userAccount);
         workAreaJPanel.add("userDetails", userDetails);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
@@ -178,10 +178,10 @@ public class OnlineReceptionistWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnRequestMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRequestMousePressed
         // TODO add your handling code here:
-        RequestDetailsJPanel requestDetailsJPanel=new RequestDetailsJPanel(workAreaJPanel,ecosystem, userAccount);
-        workAreaJPanel.add("userRegistrationJPanel", requestDetailsJPanel);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
+//        RequestDetailsJPanel requestDetailsJPanel=new RequestDetailsJPanel(workAreaJPanel,ecosystem, userAccount);
+//        workAreaJPanel.add("userRegistrationJPanel", requestDetailsJPanel);
+//        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+//        layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnRequestMousePressed
 
 

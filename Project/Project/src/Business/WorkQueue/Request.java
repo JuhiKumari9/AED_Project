@@ -5,7 +5,10 @@
  */
 package Business.WorkQueue;
 
+import Business.ExpertTherapist.ExpertTherapist;
+import Business.GeneralTherapist.GeneralTherapist;
 import Business.TestDefiner.TestDirectory;
+import Business.TestReporter.TestReporter;
 import Business.User.TestResultDirectory;
 import Business.User.User;
 import java.util.Random;
@@ -30,6 +33,10 @@ public class Request {
     private TestReportDirectory testReportDirectory;
     private TestResultDirectory testResultDirectory;
     private PrescriptionDirectory prescriptionDirectry;
+    private GeneralTherapist generalTherapist;
+    private ExpertTherapist exprtTherapist;
+    private TestReporter testReporter;
+    private String testComment;
 
     public Request(String reasonForTreatment) {
         Random rnd = new Random();
@@ -153,8 +160,38 @@ public class Request {
         }
         return prescriptionDirectry;
     }
-    
-    
+
+    public GeneralTherapist getGeneralTherapist() {
+        return generalTherapist;
+    }
+
+    public void setGeneralTherapist(GeneralTherapist generalTherapist) {
+        this.generalTherapist = generalTherapist;
+    }
+
+    public ExpertTherapist getExprtTherapist() {
+        return exprtTherapist;
+    }
+
+    public void setExprtTherapist(ExpertTherapist exprtTherapist) {
+        this.exprtTherapist = exprtTherapist;
+    }
+
+    public TestReporter getTestReporter() {
+        return testReporter;
+    }
+
+    public void setTestReporter(TestReporter testReporter) {
+        this.testReporter = testReporter;
+    }
+
+    public String getTestComment() {
+        return testComment;
+    }
+
+    public void setTestComment(String testComment) {
+        this.testComment = testComment;
+    }
     
     
     @Override

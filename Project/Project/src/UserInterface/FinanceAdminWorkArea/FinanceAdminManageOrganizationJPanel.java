@@ -47,9 +47,10 @@ public class FinanceAdminManageOrganizationJPanel extends javax.swing.JPanel {
     }
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel)tblOrganisation.getModel();
-        
+//        System.out.println(or.getName() + or.getType());
         model.setRowCount(0);
         for(Organization or: orgDir.getOrgList()){
+            System.out.println(or.getName() + or.getType());
             Object[] row = new Object[2];
             row[0] = or.getName();
             row[1] = or.getType();

@@ -30,4 +30,15 @@ public class RepresentativeDirectory {
         representativeList.remove(gt);
     
     }
+     
+     public Representative findUserByUserName(String username){
+        Representative user = null;
+        
+        for(Representative usr: representativeList){
+        if(usr.getUsername().equalsIgnoreCase(username)){
+            user=usr;
+        }
+        }
+        return user;
+     }
 }

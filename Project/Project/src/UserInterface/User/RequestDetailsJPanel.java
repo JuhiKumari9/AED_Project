@@ -16,7 +16,6 @@ import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.Request;
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -78,10 +77,10 @@ public class RequestDetailsJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         lblDoctorslist1 = new javax.swing.JLabel();
-        btnViewDetails = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestDetailsTable = new javax.swing.JTable();
-        btnAddNewRequest = new javax.swing.JButton();
+        btnRequest = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,26 +88,12 @@ public class RequestDetailsJPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
-        lblDoctorslist1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDoctorslist1.setText("REGISTRATION");
+        lblDoctorslist1.setText("Registration");
 
-        btnViewDetails.setBackground(new java.awt.Color(0, 255, 204));
-        btnViewDetails.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnViewDetails.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewDetails.setText("View Details");
-        btnViewDetails.setBorder(null);
-        btnViewDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnViewDetails.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnViewDetailsMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnViewDetailsMouseExited(evt);
-            }
-        });
-        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("View Details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewDetailsActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -125,27 +110,15 @@ public class RequestDetailsJPanel extends javax.swing.JPanel {
         requestDetailsTable.setRowHeight(24);
         jScrollPane1.setViewportView(requestDetailsTable);
 
-        btnAddNewRequest.setBackground(new java.awt.Color(0, 255, 204));
-        btnAddNewRequest.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnAddNewRequest.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddNewRequest.setText("Add New request");
-        btnAddNewRequest.setBorder(null);
-        btnAddNewRequest.setBorderPainted(false);
-        btnAddNewRequest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAddNewRequest.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAddNewRequestMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAddNewRequestMouseExited(evt);
-            }
+        btnRequest.setText("Add New request");
+        btnRequest.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnAddNewRequestMousePressed(evt);
+                btnRequestMousePressed(evt);
             }
         });
-        btnAddNewRequest.addActionListener(new java.awt.event.ActionListener() {
+        btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddNewRequestActionPerformed(evt);
+                btnRequestActionPerformed(evt);
             }
         });
 
@@ -154,41 +127,37 @@ public class RequestDetailsJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblDoctorslist1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(154, 154, 154)
-                        .addComponent(btnAddNewRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(299, 299, 299))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRequest)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(188, 188, 188)
+                            .addComponent(lblDoctorslist1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(25, 25, 25)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(lblDoctorslist1)
-                        .addGap(45, 45, 45))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAddNewRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                .addContainerGap()
+                .addComponent(lblDoctorslist1)
+                .addGap(5, 5, 5)
+                .addComponent(btnRequest)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(btnViewDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 830, 340));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 840, 420));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
         int row = requestDetailsTable.getSelectedRow();
@@ -202,44 +171,24 @@ public class RequestDetailsJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         } 
-    }//GEN-LAST:event_btnViewDetailsActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnAddNewRequestMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewRequestMousePressed
+    private void btnRequestMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRequestMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddNewRequestMousePressed
+    }//GEN-LAST:event_btnRequestMousePressed
 
-    private void btnAddNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewRequestActionPerformed
+    private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         // TODO add your handling code here:
         RequestQuestionPage1JPanel userRegistrationJPanel=new RequestQuestionPage1JPanel(userProcessContainer,system, userAccount);
         userProcessContainer.add("userRegistrationJPanel", userRegistrationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnAddNewRequestActionPerformed
-
-    private void btnViewDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewDetailsMouseEntered
-        // TODO add your handling code here:
-        btnViewDetails.setBackground(new Color(0,204,204));
-    }//GEN-LAST:event_btnViewDetailsMouseEntered
-
-    private void btnViewDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewDetailsMouseExited
-        // TODO add your handling code here:
-        btnViewDetails.setBackground(new Color(0,255,204));
-    }//GEN-LAST:event_btnViewDetailsMouseExited
-
-    private void btnAddNewRequestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewRequestMouseEntered
-        // TODO add your handling code here:
-        btnAddNewRequest.setBackground(new Color(0,204,204));
-    }//GEN-LAST:event_btnAddNewRequestMouseEntered
-
-    private void btnAddNewRequestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewRequestMouseExited
-        // TODO add your handling code here:
-        btnAddNewRequest.setBackground(new Color(0,255,204));
-    }//GEN-LAST:event_btnAddNewRequestMouseExited
+    }//GEN-LAST:event_btnRequestActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddNewRequest;
-    private javax.swing.JButton btnViewDetails;
+    private javax.swing.JButton btnRequest;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDoctorslist1;

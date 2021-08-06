@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UserInterface.TestReporterRole.TestReporterWorkAreaJPanel;
 import UserInterface.User.UserAdminWorkAreaJPanel;
 import UserInterface.User.UserRegistrationJPanel;
 import javax.swing.JPanel;
@@ -22,7 +23,7 @@ public class TestReporterRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem system, Network network) {
-        return new UserAdminWorkAreaJPanel(userProcessContainer,account,organization,enterprise,system);
+        return new TestReporterWorkAreaJPanel(userProcessContainer,account,organization,enterprise,system);
 //    return null; //add something here
     }
     

@@ -13,21 +13,6 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.FinanceEnterpriseAdmin;
 import Business.Role.GOVTEnterpriseAdmin;
-//import Business.Role.ContractorAdmin;
-//import Business.Role.DisasterManagementHead;
-//import Business.Role.EmergencyUnitAdmin;
-//import Business.Role.FinanceAdmin;
-//import Business.Role.FireSafetyAdmin;
-//import Business.Role.HospitalAdmin;
-//import Business.Role.MitigationUnitAdmin;
-//import Business.Role.PWDAdmin;
-//import Business.Role.PoliceAdmin;
-//import Business.Role.RecoveryUnitAdmin;
-//import Business.Role.ResourceManagementUnitAdmin;
-//import static Business.Role.Role.RoleType.EmergencyUnitAdmin;
-//import Business.Role.SystemAdminRole;
-//import Business.Role.VaccineAdmin;
-//import Business.Role.VolunteerAdmin;
 import Business.UserAccount.UserAccount;
 import UserInterface.User.UserRegistrationJPanel;
 import java.awt.CardLayout;
@@ -40,8 +25,7 @@ import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
-//import userinterface.CreateAccount.VolunteerRegisterationForm;
-//import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+
 
 /**
  *
@@ -121,6 +105,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         headerJPanel.setBackground(new java.awt.Color(255, 255, 255));
+        headerJPanel.setBorder(new javax.swing.border.MatteBorder(null));
 
         lblTalkSpace.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         lblTalkSpace.setForeground(new java.awt.Color(0, 255, 204));
@@ -133,8 +118,8 @@ public class LoginJFrame extends javax.swing.JFrame {
 
         btnClose.setBackground(new java.awt.Color(0, 0, 0));
         btnClose.setForeground(new java.awt.Color(255, 255, 255));
-        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/close icon.png"))); // NOI18N
-        btnClose.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(51, 51, 51)));
+        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/power-button-icon-8350.jpg"))); // NOI18N
+        btnClose.setBorder(null);
         btnClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnClose.setPreferredSize(new java.awt.Dimension(30, 30));
         btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,10 +140,18 @@ public class LoginJFrame extends javax.swing.JFrame {
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(0, 255, 204));
         btnBack.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(0, 255, 204));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBackMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBackMouseExited(evt);
+            }
+        });
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -174,7 +167,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                 .addComponent(lblTalkSpace, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 1026, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(headerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnClose, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerJPanelLayout.createSequentialGroup()
@@ -194,7 +187,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                         .addGroup(headerJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTalkSpace, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 18, Short.MAX_VALUE)))
+                        .addGap(0, 16, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -269,7 +262,6 @@ public class LoginJFrame extends javax.swing.JFrame {
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/1.jpg"))); // NOI18N
-        jLabel2.setPreferredSize(new java.awt.Dimension(495, 495));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/new login.jpg"))); // NOI18N
@@ -302,7 +294,7 @@ public class LoginJFrame extends javax.swing.JFrame {
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginJPanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginJPanelLayout.createSequentialGroup()
                         .addGap(242, 242, 242)
@@ -343,7 +335,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginJPanelLayout.createSequentialGroup()
                 .addContainerGap(150, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addGap(145, 145, 145))
         );
 
@@ -408,12 +400,14 @@ public class LoginJFrame extends javax.swing.JFrame {
     private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
         // TODO add your handling code here:
 
-        btnLogin.setBackground(new Color(0,204,204));
+        btnLogin.setBackground(new Color(255,255,255));
+        btnLogin.setForeground(new Color(0,255,204));
     }//GEN-LAST:event_btnLoginMouseEntered
 
     private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
         // TODO add your handling code here:
         btnLogin.setBackground(new Color(0,255,204));
+        btnLogin.setForeground(new Color(255,255,255));
     }//GEN-LAST:event_btnLoginMouseExited
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -511,23 +505,37 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private void btnRegistrationMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrationMouseEntered
         // TODO add your handling code here:
-        btnRegistration.setBackground(new Color(0,204,204));
+          btnRegistration.setBackground(new Color(255,255,255));
+        btnRegistration.setForeground(new Color(0,255,204));
     }//GEN-LAST:event_btnRegistrationMouseEntered
 
     private void btnRegistrationMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrationMouseExited
         // TODO add your handling code here:
         btnRegistration.setBackground(new Color(0,255,204));
+        btnRegistration.setForeground(new Color(255,255,255));
     }//GEN-LAST:event_btnRegistrationMouseExited
 
     private void btnRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrationActionPerformed
         // TODO add your handling code here:
+        lblWelcome.setText("Welcome to DMS World !");
+        btnBack.setVisible(true);
+        headerJPanel.setVisible(true);
+        lblTalkSpace.setVisible(false);
+        container.setVisible(true);
+        loginJPanel.setVisible(false);
+        
+//        container.add("WorkArea", register);
+        UserRegistrationJPanel userRegistrationJPanel=new UserRegistrationJPanel(container,system, userAcct);
+        container.add("userRegistrationJPanel", userRegistrationJPanel);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
     }//GEN-LAST:event_btnRegistrationActionPerformed
 
     private void btnRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrationMouseClicked
         // TODO add your handling code here:
 //        VolunteerRegisterationForm register = new VolunteerRegisterationForm(container, system);
         lblWelcome.setText("Welcome to DMS World !");
-        
+        btnBack.setVisible(true);
         headerJPanel.setVisible(true);
         lblTalkSpace.setVisible(false);
         container.setVisible(true);
@@ -545,7 +553,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         dB4OUtil.storeSystem(system);
         container.removeAll();
         btnClose.setVisible(true);
-        btnBack.setVisible(false);
+//        btnBack.setVisible(false);
         loginJPanel.setVisible(true);
         lblWelcome.setVisible(false);
         container.setVisible(false);
@@ -553,6 +561,18 @@ public class LoginJFrame extends javax.swing.JFrame {
         lblTalkSpace.setVisible(true);
         
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseEntered
+        // TODO add your handling code here:
+        btnBack.setBackground(new Color(255,255,255));
+        btnBack.setForeground(new Color(0,255,204));
+    }//GEN-LAST:event_btnBackMouseEntered
+
+    private void btnBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseExited
+        // TODO add your handling code here:
+        btnBack.setBackground(new Color(0,255,204));
+        btnBack.setForeground(new Color(255,255,255));
+    }//GEN-LAST:event_btnBackMouseExited
 
     /**
      * @param args the command line arguments

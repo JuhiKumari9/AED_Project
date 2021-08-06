@@ -5,6 +5,13 @@
  */
 package UserInterface.RationingFacilitatorWorkArea;
 
+import Business.Ecosystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author rtspi
@@ -14,8 +21,19 @@ public class RationingFacilitatorWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RationingFacilitatorWorkAreaJPanel
      */
-    public RationingFacilitatorWorkAreaJPanel() {
+    
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    Ecosystem system;
+    Organization organization;
+    UserAccount userAcc;
+    public RationingFacilitatorWorkAreaJPanel(JPanel userProcessContainer, Ecosystem system,Enterprise enterprise, UserAccount userAcc, Organization organization) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.system = system;
+        this.organization = organization;
+        this.userAcc = userAcc;
     }
 
     /**
@@ -27,110 +45,120 @@ public class RationingFacilitatorWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblRequests = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        btnAccept = new javax.swing.JButton();
-        btnReject = new javax.swing.JButton();
-        btnCompleted = new javax.swing.JButton();
+        rationingFacilitatorJPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        volunteerJComboBox = new javax.swing.JComboBox<>();
-        btnProcess = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnManageRequests = new javax.swing.JButton();
+        btnRequestsUnits = new javax.swing.JButton();
+        rightFacilitatorJPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        tblRequests.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        rationingFacilitatorJPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 255, 204));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Rationing Facilitator");
+
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+
+        btnManageRequests.setBackground(new java.awt.Color(0, 255, 204));
+        btnManageRequests.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnManageRequests.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageRequests.setText("Manage Requests");
+        btnManageRequests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageRequestsActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(tblRequests);
+        });
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Rationing Facilitator Work Area");
+        btnRequestsUnits.setBackground(new java.awt.Color(0, 255, 204));
+        btnRequestsUnits.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnRequestsUnits.setForeground(new java.awt.Color(255, 255, 255));
+        btnRequestsUnits.setText("Request Units");
+        btnRequestsUnits.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestsUnitsActionPerformed(evt);
+            }
+        });
 
-        btnAccept.setText("Accept Request");
+        javax.swing.GroupLayout rationingFacilitatorJPanelLayout = new javax.swing.GroupLayout(rationingFacilitatorJPanel);
+        rationingFacilitatorJPanel.setLayout(rationingFacilitatorJPanelLayout);
+        rationingFacilitatorJPanelLayout.setHorizontalGroup(
+            rationingFacilitatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rationingFacilitatorJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(rationingFacilitatorJPanelLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 60, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rationingFacilitatorJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(rationingFacilitatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRequestsUnits, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageRequests))
+                .addGap(69, 69, 69))
+        );
+        rationingFacilitatorJPanelLayout.setVerticalGroup(
+            rationingFacilitatorJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rationingFacilitatorJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btnManageRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(btnRequestsUnits, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(578, Short.MAX_VALUE))
+        );
 
-        btnReject.setText("Reject Request");
-
-        btnCompleted.setText("Complete Request");
-
-        jLabel2.setText("Assign Volunteer:");
-
-        volunteerJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        btnProcess.setText("Process Request");
+        rightFacilitatorJPanel.setBackground(new java.awt.Color(255, 255, 255));
+        rightFacilitatorJPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(243, 243, 243)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAccept)
-                                .addGap(126, 126, 126)
-                                .addComponent(btnReject)
-                                .addGap(138, 138, 138)
-                                .addComponent(btnCompleted))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(108, 108, 108)
-                                .addComponent(volunteerJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(235, 235, 235)
-                                .addComponent(btnProcess)))))
-                .addContainerGap(554, Short.MAX_VALUE))
+                .addComponent(rationingFacilitatorJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rightFacilitatorJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAccept)
-                    .addComponent(btnReject)
-                    .addComponent(btnCompleted))
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(volunteerJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(107, 107, 107)
-                .addComponent(btnProcess)
-                .addContainerGap(265, Short.MAX_VALUE))
+            .addComponent(rationingFacilitatorJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rightFacilitatorJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnManageRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestsActionPerformed
+        // TODO add your handling code here:
+        RationingFacilitatorRequestsJPanel manageRequestsJPanel = new RationingFacilitatorRequestsJPanel(rightFacilitatorJPanel, enterprise, userAcc, enterprise.getOrganizationDirectory(),organization);
+        rightFacilitatorJPanel.add("manageRequestsJPanel", manageRequestsJPanel);
+        CardLayout layout = (CardLayout) rightFacilitatorJPanel.getLayout();
+        layout.next(rightFacilitatorJPanel);
+    }//GEN-LAST:event_btnManageRequestsActionPerformed
+
+    private void btnRequestsUnitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestsUnitsActionPerformed
+        // TODO add your handling code here:
+          RationingFacilitatorUnitRequestsJPanel manageUnitRequestsJPanel = new RationingFacilitatorUnitRequestsJPanel(rightFacilitatorJPanel, enterprise, userAcc, enterprise.getOrganizationDirectory(), system);
+        rightFacilitatorJPanel.add("manageUnitRequestsJPanel", manageUnitRequestsJPanel);
+        CardLayout layout = (CardLayout) rightFacilitatorJPanel.getLayout();
+        layout.next(rightFacilitatorJPanel);
+    }//GEN-LAST:event_btnRequestsUnitsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccept;
-    private javax.swing.JButton btnCompleted;
-    private javax.swing.JButton btnProcess;
-    private javax.swing.JButton btnReject;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnManageRequests;
+    private javax.swing.JButton btnRequestsUnits;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblRequests;
-    private javax.swing.JComboBox<String> volunteerJComboBox;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel rationingFacilitatorJPanel;
+    private javax.swing.JPanel rightFacilitatorJPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,10 +13,15 @@ import Business.GeneralTherapist.GeneralTherapistDirectory;
 import Business.HealthMinistryRepresentative.RepresentativeDirectory;
 import Business.OnlineReceptionist.OnlineReceptionistDirectory;
 import Business.Role.Role;
+import Business.TestDefiner.TestDefinerDirectory;
+import Business.TestReporter.TestReporterDirectory;
 import Business.UserAccount.UserAccountDirectory;
 import Business.VolunteeringHead.VolunteeringHead;
 import Business.VolunteeringHead.VolunteeringHeadDirectory;
+import Business.WorkQueue.FinanceRequestDirectory;
+import Business.WorkQueue.RationRequestDirectory;
 import Business.WorkQueue.RequestDirectory;
+import Business.WorkQueue.VolunteerRequestDirectory;
 import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
 
@@ -35,11 +40,16 @@ public abstract class Organization {
     private GeneralTherapistDirectory generalTherapistDirectory;
     private ExpertTherapistDirectory expertTherapistDirectory;
     private OnlineReceptionistDirectory onlineReceptionistDirectory;
+    private TestDefinerDirectory testDefinerDirectory;
+    private TestReporterDirectory testReporterDirectory;
     private BGAdminDirectory bgAdminDirectory;
     private VolunteeringHeadDirectory volunteeringHeadDirectory;
     private DistributorDirectory distributorDirectory;
     private ExecutiveDirectory executiveDirectory;
     private RepresentativeDirectory representativeDirectory;
+    private RationRequestDirectory rationRequestDirectory = new RationRequestDirectory();
+    private FinanceRequestDirectory financeRequestDirectory = new FinanceRequestDirectory();
+    private VolunteerRequestDirectory volunteerRequestDirectory = new VolunteerRequestDirectory();
   
     public Organization(String name) {
         this.name = name;
@@ -69,10 +79,8 @@ public abstract class Organization {
         OnlineReceptionistOrganization("Online Receptionist"),
         ExpertTherapistOrganization("Expert Therapist"),
         GeneralTherapistOrganization("General Therapist"),
-        Depression("Depression"),
-        Anxiety("Anxiety"),
-        YouthMentalHealth("Youth Mental Health"),
-        PTSD("PTSD");
+        TestDefiner("Test Definer"),
+        TestReporter("Test Reporter");
         
         
         
@@ -159,6 +167,30 @@ public abstract class Organization {
         return onlineReceptionistDirectory;
     }
 
+    public TestDefinerDirectory getTestDefinerDirectory() {
+        if(testDefinerDirectory == null){
+            testDefinerDirectory = new TestDefinerDirectory();
+        }
+        return testDefinerDirectory;
+    }
+
+    public void setTestDefinerDirectory(TestDefinerDirectory testDefinerDirectory) {
+        this.testDefinerDirectory = testDefinerDirectory;
+    }
+
+    public TestReporterDirectory getTestReporterDirectory() {
+        if(testReporterDirectory == null){
+            testReporterDirectory = new TestReporterDirectory();
+        }
+        return testReporterDirectory;
+    }
+
+    public void setTestReporterDirectory(TestReporterDirectory testReporterDirectory) {
+        this.testReporterDirectory = testReporterDirectory;
+    }
+    
+    
+
     public BGAdminDirectory getBgAdminDirectory() {
         if(bgAdminDirectory == null){
         bgAdminDirectory = new BGAdminDirectory();
@@ -213,6 +245,40 @@ public abstract class Organization {
     public void setRepresentativeDirectory(RepresentativeDirectory representativeDirectory) {
         this.representativeDirectory = representativeDirectory;
     }
+
+    public RationRequestDirectory getRationRequestDirectory() {
+        if(rationRequestDirectory == null){
+        rationRequestDirectory = new RationRequestDirectory();
+        }
+        return rationRequestDirectory;
+    }
+
+    public void setRationRequestDirectory(RationRequestDirectory rationRequestDirectory) {
+        this.rationRequestDirectory = rationRequestDirectory;
+    }
+
+    public VolunteerRequestDirectory getVolunteerRequestDirectory() {
+        if(volunteerRequestDirectory == null){
+        volunteerRequestDirectory = new VolunteerRequestDirectory();
+        }
+        return volunteerRequestDirectory;
+    }
+
+    public void setVolunteerRequestDirectory(VolunteerRequestDirectory volunteerRequestDirectory) {
+        this.volunteerRequestDirectory = volunteerRequestDirectory;
+    }
+    
+    public FinanceRequestDirectory getFinanceRequestDirectory() {
+        if(financeRequestDirectory == null){
+            financeRequestDirectory = new FinanceRequestDirectory();
+        }
+        return financeRequestDirectory;
+    }
+    
+    
+    
+    
+    
     
     
     

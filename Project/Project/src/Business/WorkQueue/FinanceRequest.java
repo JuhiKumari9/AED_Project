@@ -10,6 +10,7 @@ import Business.Distributor.Distributor;
 import Business.OnlineReceptionist.OnlineReceptionist;
 import Business.User.User;
 import Business.VolunteeringHead.VolunteeringHead;
+import java.util.Random;
 
 /**
  *
@@ -24,14 +25,12 @@ public class FinanceRequest {
     private Distributor rationDistributor;
     private BGAdmin bgAdmin;
 
-    public FinanceRequest(String requestNumber, String requestName, String status, User user, VolunteeringHead volunteer, Distributor rationDistributor, BGAdmin bgAdmin) {
-        this.requestNumber = requestNumber;
+    public FinanceRequest(String requestName, String status, User user) {
+        Random rnd = new Random();
+        requestNumber = "FinReq-" + rnd.nextInt(99999);
         this.requestName = requestName;
         this.status = status;
         this.user = user;
-        this.volunteer = volunteer;
-        this.rationDistributor = rationDistributor;
-        this.bgAdmin = bgAdmin;
     }
 
     
@@ -91,11 +90,15 @@ public class FinanceRequest {
     public void setBgAdmin(BGAdmin bgAdmin) {
         this.bgAdmin = bgAdmin;
     }
+
+    
+    
+    
     
     
 
     @Override
     public String toString() {
-        return requestNumber;
+        return requestName;
     } 
 }

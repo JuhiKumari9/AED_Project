@@ -31,5 +31,16 @@ public class GeneralTherapistDirectory {
         generalTherapistList.remove(gt);
     
     }
+     
+     public GeneralTherapist findUserByUserName(String username){
+        GeneralTherapist user = null;
+        
+        for(GeneralTherapist usr: generalTherapistList){
+        if(usr.getUsername().equalsIgnoreCase(username)){
+            user=usr;
+        }
+        }
+        return user;
+     }
     
 }

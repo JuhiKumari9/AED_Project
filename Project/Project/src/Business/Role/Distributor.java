@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UserInterface.RationingFacilitatorWorkArea.RationingFacilitatorWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -20,7 +21,7 @@ public class Distributor extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem system, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new RationingFacilitatorWorkAreaJPanel(userProcessContainer, system,enterprise, account, organization);//To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

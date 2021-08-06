@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class TestResultDirectory {
     ArrayList<TestResult> testResultList = new ArrayList<>();
 
-    public ArrayList<TestResult> getTestReportList() {
+    public ArrayList<TestResult> getTestResultList() {
         if(testResultList == null){
             testResultList = new ArrayList<>();
         }

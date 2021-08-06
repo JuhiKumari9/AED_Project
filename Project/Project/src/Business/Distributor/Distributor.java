@@ -9,6 +9,8 @@ import Business.Organization.Organization;
 import Business.Person.Person;
 import Business.Role.Role;
 import Business.WorkQueue.FinanceRequestDirectory;
+import Business.WorkQueue.RationRequest;
+import Business.WorkQueue.RationRequestDirectory;
 
 /**
  *
@@ -18,6 +20,7 @@ public class Distributor extends Person {
     
     private Organization org;
     private FinanceRequestDirectory financeRequestDirectory;
+    private RationRequestDirectory rationRequestDirectory;
 
     public Distributor(String name, String contactNumber, String zipcode, String city, String gender, String userName, String password, String dateOfBirthe, String state, String country, String email, Role role, Organization org) {
         super(name, contactNumber, zipcode, city, gender, userName, password, dateOfBirthe, state, country, email, role);
@@ -37,6 +40,13 @@ public class Distributor extends Person {
             financeRequestDirectory = new FinanceRequestDirectory();
         }
         return financeRequestDirectory;
+    }
+    
+    public RationRequestDirectory getRationRequestDirectory(){
+         if(rationRequestDirectory == null){
+            rationRequestDirectory = new RationRequestDirectory();
+        }
+        return rationRequestDirectory;
     }
     
     

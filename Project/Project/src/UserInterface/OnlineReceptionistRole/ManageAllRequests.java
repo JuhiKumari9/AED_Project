@@ -42,7 +42,7 @@ public class ManageAllRequests extends javax.swing.JPanel {
     private Ecosystem system;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
-    public ManageAllRequests(JPanel userProcessContainer, Ecosystem system, UserAccount userAccount) {
+    public ManageAllRequests(JPanel userProcessContainer, Ecosystem system, UserAccount userAccount, Organization org, Enterprise ent) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
@@ -78,7 +78,6 @@ public class ManageAllRequests extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestDetailsTable = new javax.swing.JTable();
-        btnRequest = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,31 +107,17 @@ public class ManageAllRequests extends javax.swing.JPanel {
         requestDetailsTable.setRowHeight(24);
         jScrollPane1.setViewportView(requestDetailsTable);
 
-        btnRequest.setText("Add New request");
-        btnRequest.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnRequestMousePressed(evt);
-            }
-        });
-        btnRequest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRequestActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnRequest)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(316, 316, 316)
                         .addComponent(lblDoctorslist1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -143,9 +128,7 @@ public class ManageAllRequests extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addComponent(lblDoctorslist1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRequest)
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
@@ -164,28 +147,15 @@ public class ManageAllRequests extends javax.swing.JPanel {
             return;
         }else{
         Request request=(Request)requestDetailsTable.getValueAt(row, 0);
-        RequestDetailsOnlineReceptionistJPanelJPanel receptionistRequestDetails=new RequestDetailsOnlineReceptionistJPanelJPanel(userProcessContainer,system, userAccount,request);
+        RequestDetailsOnlineReceptionistJPanelJPanel receptionistRequestDetails=new RequestDetailsOnlineReceptionistJPanelJPanel(userProcessContainer,system, userAccount,request, org, ent);
         userProcessContainer.add("receptionistRequestDetails", receptionistRequestDetails);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnRequestMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRequestMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRequestMousePressed
-
-    private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
-        // TODO add your handling code here:
-        RequestQuestionPage1JPanel userRegistrationJPanel=new RequestQuestionPage1JPanel(userProcessContainer,system, userAccount);
-        userProcessContainer.add("userRegistrationJPanel", userRegistrationJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnRequestActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRequest;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

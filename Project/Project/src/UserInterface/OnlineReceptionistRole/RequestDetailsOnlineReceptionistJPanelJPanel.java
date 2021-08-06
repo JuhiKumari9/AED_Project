@@ -10,6 +10,7 @@ package UserInterface.OnlineReceptionistRole;
 import UserInterface.User.*;
 import Business.Ecosystem;
 import Business.Enterprise.Enterprise;
+import Business.ExpertTherapist.ExpertTherapist;
 import Business.GeneralTherapist.GeneralTherapist;
 import Business.Network.Network;
 import Business.Organization.Organization;
@@ -47,9 +48,10 @@ public class RequestDetailsOnlineReceptionistJPanelJPanel extends javax.swing.JP
     private Ecosystem system;
     private Request request;
     private Organization organi;
+    private Boolean flagTherapist = false;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
-    public RequestDetailsOnlineReceptionistJPanelJPanel(JPanel userProcessContainer, Ecosystem system, UserAccount userAccount, Request request) {
+    public RequestDetailsOnlineReceptionistJPanelJPanel(JPanel userProcessContainer, Ecosystem system, UserAccount userAccount, Request request, Organization org, Enterprise ent) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
@@ -58,8 +60,7 @@ public class RequestDetailsOnlineReceptionistJPanelJPanel extends javax.swing.JP
         this.org = org;
         this.request = request;
         populateData();
-        
-        
+        tableJPanel.setVisible(false);
     }
      public class HeaderColor extends DefaultTableCellRenderer {
         public HeaderColor() {
@@ -108,8 +109,6 @@ public class RequestDetailsOnlineReceptionistJPanelJPanel extends javax.swing.JP
         jScrollPane1 = new javax.swing.JScrollPane();
         therapistTable = new javax.swing.JTable();
         btnSubmit = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        organizationComboBox = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -252,6 +251,11 @@ public class RequestDetailsOnlineReceptionistJPanelJPanel extends javax.swing.JP
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 840, 360));
 
         btnExpertTherapist.setText("Assign Expert Therapist");
+        btnExpertTherapist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExpertTherapistActionPerformed(evt);
+            }
+        });
         add(btnExpertTherapist, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 170, -1));
 
         btnGeneralTherapist.setText("Assign General Therapist");
@@ -276,6 +280,11 @@ public class RequestDetailsOnlineReceptionistJPanelJPanel extends javax.swing.JP
         jScrollPane1.setViewportView(therapistTable);
 
         btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tableJPanelLayout = new javax.swing.GroupLayout(tableJPanel);
         tableJPanel.setLayout(tableJPanelLayout);
@@ -301,40 +310,79 @@ public class RequestDetailsOnlineReceptionistJPanelJPanel extends javax.swing.JP
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add(tableJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 460, 150));
-
-        jLabel2.setText("Select an Organization");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 444, 220, 20));
-
-        organizationComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                organizationComboBoxActionPerformed(evt);
-            }
-        });
-        add(organizationComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 220, 40));
+        add(tableJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 460, 150));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGeneralTherapistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneralTherapistActionPerformed
         // TODO add your handling code here:
-        populateComboBox();
         tableJPanel.setVisible(true);
+        flagTherapist = false;
         DefaultTableModel model = (DefaultTableModel) therapistTable.getModel();
         model.setRowCount(0);
-                        for(GeneralTherapist genT: organi.getGeneralTherapistDirectory().getGeneralTherapistList()){
+                          for(Organization orga: ent.getOrganizationDirectory().getOrgList()){
+                        if(orga.getType().getValue().equalsIgnoreCase("General Therapist")){
+                           for(GeneralTherapist genT: orga.getGeneralTherapistDirectory().getGeneralTherapistList()){
                             Object[] row = new Object[4];
                             row[0] = genT;
                             row[1] = genT.getGender();
                             row[2] = genT.getExpertise();
                             row[3] = genT.getState();
-                            model.addRow(row);
+                            model.addRow(row); 
+                        }
+                    
+                        }         
         }
         
     }//GEN-LAST:event_btnGeneralTherapistActionPerformed
 
-    private void organizationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationComboBoxActionPerformed
+    private void btnExpertTherapistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpertTherapistActionPerformed
         // TODO add your handling code here:
-        organi = (Organization)organizationComboBox.getSelectedItem();
-    }//GEN-LAST:event_organizationComboBoxActionPerformed
+        tableJPanel.setVisible(true);
+        flagTherapist = true;
+        DefaultTableModel model = (DefaultTableModel) therapistTable.getModel();
+        model.setRowCount(0);
+                    for(Organization orga: ent.getOrganizationDirectory().getOrgList()){
+                        if(orga.getType().getValue().equalsIgnoreCase("Expert Therapist")){
+                           for(ExpertTherapist genT: orga.getExpertTherapistDirectory().getExpertTherapistList()){
+                            Object[] row = new Object[4];
+                            row[0] = genT;
+                            row[1] = genT.getGender();
+                            row[2] = genT.getExpertise();
+                            row[3] = genT.getState();
+                            model.addRow(row); 
+                        }
+                    
+                        }         
+        }
+        
+    }//GEN-LAST:event_btnExpertTherapistActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
+        
+         int row = therapistTable.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }else{
+            if(flagTherapist == false){
+            GeneralTherapist selectedResult=(GeneralTherapist)therapistTable.getValueAt(row, 0);
+            request.setStatus("Assgned to "+ selectedResult.getName());
+            request.setGeneralTherapist(selectedResult);
+            selectedResult.getRequestDirectory().addRequest(request);
+            JOptionPane.showMessageDialog(this, "Request assigned to General Therapist "+ selectedResult.getName());
+            tableJPanel.setVisible(false);
+            } else{
+            ExpertTherapist selectedResult=(ExpertTherapist)therapistTable.getValueAt(row, 0);
+            request.setStatus("Assgned to "+ selectedResult.getName());
+            request.setExprtTherapist(selectedResult);
+            selectedResult.getRequestDirectory().addRequest(request);
+            JOptionPane.showMessageDialog(this, "Request assigned to Expert Therapist "+ selectedResult.getName());
+            tableJPanel.setVisible(false);
+            populateData();
+            }
+        } 
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -350,7 +398,6 @@ public class RequestDetailsOnlineReceptionistJPanelJPanel extends javax.swing.JP
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDoctorslist1;
@@ -363,7 +410,6 @@ public class RequestDetailsOnlineReceptionistJPanelJPanel extends javax.swing.JP
     private javax.swing.JLabel lblQuestion7;
     private javax.swing.JLabel lblQuestion8;
     private javax.swing.JLabel lblStatus;
-    private javax.swing.JComboBox organizationComboBox;
     private javax.swing.JPanel tableJPanel;
     private javax.swing.JTable therapistTable;
     // End of variables declaration//GEN-END:variables
@@ -379,17 +425,17 @@ public class RequestDetailsOnlineReceptionistJPanelJPanel extends javax.swing.JP
     lblStatus.setText(request.getStatus());
     }
     
-    public void populateComboBox(){
-        for(Network net: system.getNetworkList()){
-            if(net.getName().equalsIgnoreCase(request.getUser().getNetwork().getName())){
-                   for(Enterprise ent: net.getEnterpriseDirectory().getEntList()){
-            if(ent.getEnterpriseType().getValue().equalsIgnoreCase("MedicalProfessionalsEnterprise")){
-                for(Organization org: ent.getOrganizationDirectory().getOrgList()){
-                    organizationComboBox.addItem(org);
-                }
-            }
-        }
-            }
-        }
-    }
+//    public void populateComboBox(){
+//        for(Network net: system.getNetworkList()){
+//            if(net.getName().equalsIgnoreCase(request.getUser().getNetwork().getName())){
+//                   for(Enterprise ent: net.getEnterpriseDirectory().getEntList()){
+//            if(ent.getEnterpriseType().getValue().equalsIgnoreCase("MedicalProfessionalsEnterprise")){
+//                for(Organization org: ent.getOrganizationDirectory().getOrgList()){
+//                    organizationComboBox.addItem(org);
+//                }
+//            }
+//        }
+//            }
+//        }
+//    }
 }

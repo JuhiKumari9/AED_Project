@@ -7,6 +7,7 @@ package Business.OnlineReceptionist;
 
 import Business.Organization.Organization;
 import Business.Role.Role;
+import Business.WorkQueue.FinanceRequestDirectory;
 
 /**
  *
@@ -14,7 +15,7 @@ import Business.Role.Role;
  */
 public class OnlineReceptionist extends Business.Person.Person{
     private Organization org;
-
+//    private FinanceRequestDirectory financeRequestDirectory;
     public OnlineReceptionist(String name, String contactNumber, String zipcode, String city, String gender, String userName, String password, String dateOfBirthe, String state, String country, String email, Role role, Organization org) {
         super(name, contactNumber, zipcode, city, gender, userName, password, dateOfBirthe, state, country, email, role);
         this.org = org;
@@ -27,6 +28,13 @@ public class OnlineReceptionist extends Business.Person.Person{
     public void setOrg(Organization org) {
         this.org = org;
     }
+
+//    public FinanceRequestDirectory getFinanceRequestDirectory() {
+//        if(financeRequestDirectory == null){
+//            financeRequestDirectory = new FinanceRequestDirectory();
+//        }
+//        return financeRequestDirectory;
+//    }
     
     
 

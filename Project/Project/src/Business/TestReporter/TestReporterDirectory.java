@@ -30,5 +30,14 @@ public class TestReporterDirectory {
         testReporterList.remove(testR);
     }
     
-    
+    public TestReporter findUserByUserName(String username){
+        TestReporter user = null;
+        
+        for(TestReporter usr: testReporterList){
+        if(usr.getUsername().equalsIgnoreCase(username)){
+            user=usr;
+        }
+        }
+        return user;
+     }
 }

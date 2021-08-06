@@ -5,6 +5,7 @@
  */
 package Business.TestDefiner;
 
+import Business.GeneralTherapist.GeneralTherapist;
 import java.util.ArrayList;
 
 /**
@@ -28,4 +29,14 @@ public class TestDefinerDirectory {
         testDefinerList.remove(testD);
     }
     
+     public TestDefiner findUserByUserName(String username){
+        TestDefiner user = null;
+        
+        for(TestDefiner usr: testDefinerList){
+        if(usr.getUsername().equalsIgnoreCase(username)){
+            user=usr;
+        }
+        }
+        return user;
+     }
 }

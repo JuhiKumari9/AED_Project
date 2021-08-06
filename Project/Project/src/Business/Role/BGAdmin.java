@@ -11,6 +11,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
+import UserInterface.BackgroundCheckAdminWorkArea.BackgroundCheckAdminJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -21,7 +22,7 @@ public class BGAdmin extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem system, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new BackgroundCheckAdminJPanel(userProcessContainer, system,enterprise, account, organization); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

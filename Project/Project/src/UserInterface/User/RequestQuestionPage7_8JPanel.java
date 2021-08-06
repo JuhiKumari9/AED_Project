@@ -15,6 +15,7 @@ import Business.Organization.OrganizationDirectory;
 import Business.Role.GeneralTherapistRole;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.FinanceRequest;
 import Business.WorkQueue.Request;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -44,6 +45,7 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
     private Organization org;
     private Ecosystem system;
     private Request request;
+    private String financialAssistance;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
    
        
@@ -54,6 +56,7 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
         this.request = request;
         this.userAccount = userAccount;
          populateUsStates();
+         financialHelpComboBox.setSelectedIndex(0);
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -79,11 +82,13 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         lblDoctorslist1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         question7ComboBox = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         question8ComboBox = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        financialHelpComboBox = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -92,13 +97,6 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Registration");
-
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setText("What gender would you prefer in a provider?");
@@ -119,6 +117,22 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setText("Do you need any financial assistance?");
+
+        financialHelpComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
+        financialHelpComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                financialHelpComboBoxActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -127,17 +141,21 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(188, 188, 188)
                                 .addComponent(lblDoctorslist1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(question8ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(question7ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(question8ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(question7ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(financialHelpComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(202, 202, 202)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,12 +170,16 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(question8ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(financialHelpComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 620, 430));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 620, 510));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -169,8 +191,7 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select one from the dropdown first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }else{
-            User user = system.getUserDirectory().findUserByUserName(userAccount.getUsername());
-            
+        User user = system.getUserDirectory().findUserByUserName(userAccount.getUsername());   
         Network network = user.getNetwork();
         Organization organization = null;
         for(Enterprise ent : network.getEnterpriseDirectory().getEntList()){
@@ -186,6 +207,21 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
             request.setUser(user);
             user.getRequestDirectory().getRequestList().add(request);
             organization.getRequestDirectory().getRequestList().add(request);
+            if(financialAssistance.equalsIgnoreCase("Yes")){
+                Network net = request.getUser().getNetwork();
+            FinanceRequest freq = new FinanceRequest("Financial Help", "New", user);
+            for(Enterprise ent: network.getEnterpriseDirectory().getEntList()){
+                if(ent.getEnterpriseType().getValue().equalsIgnoreCase("FinanceEnterprise")){
+                    for(Organization org: ent.getOrganizationDirectory().getOrgList()){
+                        if(org.getType().getValue().equalsIgnoreCase("Background Check Organisation")){
+                            org.getFinanceRequestDirectory().addFinanceRequest(freq);
+                        }
+                    }
+                
+                }
+            }
+            
+            }
             JOptionPane.showMessageDialog(null, "Request generated successfully!");
             RequestDetailsJPanel requestDetails=new RequestDetailsJPanel(userProcessContainer,system,userAccount);
             userProcessContainer.add("requestDetails", requestDetails);
@@ -202,9 +238,16 @@ public class RequestQuestionPage7_8JPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_question7ComboBoxActionPerformed
 
+    private void financialHelpComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_financialHelpComboBoxActionPerformed
+        // TODO add your handling code here:
+        financialAssistance = financialHelpComboBox.getSelectedItem().toString();
+    }//GEN-LAST:event_financialHelpComboBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> financialHelpComboBox;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JPanel jPanel1;

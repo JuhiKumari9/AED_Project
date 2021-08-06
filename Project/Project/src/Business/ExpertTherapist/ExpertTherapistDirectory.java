@@ -30,4 +30,14 @@ public class ExpertTherapistDirectory {
     
     }
     
+      public ExpertTherapist findUserByUserName(String username){
+        ExpertTherapist user = null;
+        
+        for(ExpertTherapist usr: expertTherapistList){
+        if(usr.getUsername().equalsIgnoreCase(username)){
+            user=usr;
+        }
+        }
+        return user;
+     }
 }

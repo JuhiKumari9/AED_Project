@@ -155,7 +155,6 @@ public class RequestQuestionPage5_6JPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
         String res = question5ComboBox.getSelectedItem().toString();
         String res2 = question6ComboBox.getSelectedItem().toString();
         if(res.isEmpty() || res2.isEmpty()) {
@@ -164,10 +163,10 @@ public class RequestQuestionPage5_6JPanel extends javax.swing.JPanel {
         }else{
             request.setCurrentPhysicalHealth(res);
             request.setGender(res2);
-        RequestQuestionPage7_8JPanel userRegistrationJPanel=new RequestQuestionPage7_8JPanel(userProcessContainer,system,userAccount, request);
-        userProcessContainer.add("userRegistrationJPanel", userRegistrationJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+         RequestQuestionPage7_8JPanel userRegistrationJPanel=new RequestQuestionPage7_8JPanel(userProcessContainer,system,userAccount, request);
+            userProcessContainer.add("userRegistrationJPanel", userRegistrationJPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
         } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
