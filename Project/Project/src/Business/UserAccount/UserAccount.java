@@ -71,5 +71,11 @@ public class UserAccount {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return name; //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
 }

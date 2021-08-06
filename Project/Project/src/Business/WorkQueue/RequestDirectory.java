@@ -21,11 +21,11 @@ public class RequestDirectory {
         return requestList;
     }
     
-     private void addRequest(Request request){
+     public void addRequest(Request request){
         requestList.add(request);
     }
     
-      private void removeRequest(Request request){
+      public void removeRequest(Request request){
         requestList.remove(request);
     }
       

@@ -5,8 +5,21 @@
  */
 package UserInterface.BackgroundCheckAdminWorkArea;
 
+import Business.Distributor.Distributor;
 import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
+
+
+import Business.Role.Role;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.FinanceRequest;
+import Business.WorkQueue.Request;
+import UserInterface.User.RequestQuestionPage2JPanel;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,12 +32,50 @@ public class ManageBGRequestsJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private Enterprise enterprise;
+    private UserAccount useraccount;
+    private OrganizationDirectory orgDir;
+    private Organization org;
+    private Distributor dist;
     
-    public ManageBGRequestsJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public ManageBGRequestsJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount useraccount,OrganizationDirectory orgDir, Organization org) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
+        this.useraccount = useraccount;
+        this.orgDir = orgDir;
+        this.org = org;
+        populateComboBox();
+        populateTable();
+        distributorJComboBox.setSelectedIndex(0);
     }
+    
+    public void populateComboBox(){
+        distributorJComboBox.removeAllItems();
+        for(Organization org1 : orgDir.getOrgList()){
+            
+            for(Distributor da: org1.getDistributorDirectory().getDistributorList()){
+                
+                    distributorJComboBox.addItem(da);
+                
+                
+            }
+            
+        }
+    }
+    
+    public void populateTable(){
+        DefaultTableModel model = (DefaultTableModel) tblRequests.getModel();
+         model.setRowCount(0);
+           for(FinanceRequest req : org.getFinanceRequestDirectory().getFinanceRequestList()){
+            Object[] row = new Object[5];
+            row[0] = req.getRequestNumber();
+            row[1] = req;
+            row[2] = req.getUser().getName();
+            row[3] = req.getUser().getContactNumber();
+            row[4] = req.getStatus();
+            model.addRow(row);
+        }   
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,58 +86,160 @@ public class ManageBGRequestsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblRequests = new javax.swing.JTable();
         btnAccept = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
-        btnCompleted = new javax.swing.JButton();
-        facilitatorJComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         btnProcess = new javax.swing.JButton();
+        distributorJComboBox = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRequests = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnAccept.setText("Accept Request");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
+        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 200, -1, -1));
+
+        btnReject.setText("Reject Request");
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
+        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 200, -1, -1));
+
+        jLabel1.setText("Assign Distributor:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 293, 120, 29));
+
+        btnProcess.setText("Process Request");
+        btnProcess.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProcessActionPerformed(evt);
+            }
+        });
+        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 429, -1, -1));
+
+        distributorJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                distributorJComboBoxActionPerformed(evt);
+            }
+        });
+        add(distributorJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 180, -1));
+
+        tblRequests.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Request Number", "Request Name", "User Name", "User Contact", "Status"
             }
         ));
         jScrollPane1.setViewportView(tblRequests);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 63, 642, 94));
-
-        btnAccept.setText("Accept Request");
-        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 200, -1, -1));
-
-        btnReject.setText("Reject Request");
-        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 200, -1, -1));
-
-        btnCompleted.setText("Complete Request");
-        add(btnCompleted, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 200, -1, -1));
-
-        facilitatorJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(facilitatorJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 293, 176, 29));
-
-        jLabel1.setText("Assign Facilitator:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 293, 100, 29));
-
-        btnProcess.setText("Process Request");
-        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 429, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+        // TODO add your handling code here:
+         
+        int row = tblRequests.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        FinanceRequest fReq=(FinanceRequest)tblRequests.getValueAt(row, 1);
+        if(fReq.getStatus().equalsIgnoreCase("Rejected")){
+            JOptionPane.showMessageDialog(null, "Request is rejected already", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(fReq.getStatus().equalsIgnoreCase("Accepted")){
+            JOptionPane.showMessageDialog(null, "Request is already accepted", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(fReq.getStatus().equalsIgnoreCase("Processed - Sent to Distributor")){
+            JOptionPane.showMessageDialog(null, "Request is processed already", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        else{
+        
+//        FinanceRequest fReq=(FinanceRequest)tblRequests.getValueAt(row, 1);
+        fReq.setStatus("Accepted");
+        JOptionPane.showMessageDialog(null, "Request Accepted successfully!!!");
+        } 
+        populateTable();
+    }//GEN-LAST:event_btnAcceptActionPerformed
+
+    private void distributorJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_distributorJComboBoxActionPerformed
+        // TODO add your handling code here:
+        dist = (Distributor)distributorJComboBox.getSelectedItem();
+    }//GEN-LAST:event_distributorJComboBoxActionPerformed
+
+    private void btnProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessActionPerformed
+        // TODO add your handling code here:
+        
+        int row = tblRequests.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        FinanceRequest fReq=(FinanceRequest)tblRequests.getValueAt(row, 1);
+        if(fReq.getStatus().equalsIgnoreCase("Rejected")){
+            JOptionPane.showMessageDialog(null, "Request is rejected already", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(fReq.getStatus().equalsIgnoreCase("Processed - Sent to Distributor")){
+            JOptionPane.showMessageDialog(null, "Request is processed already", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+        
+        
+        fReq.setStatus("Processed - Sent to Distributor");
+        dist.getFinanceRequestDirectory().addFinanceRequest(fReq);
+        JOptionPane.showMessageDialog(null, "Request Processed Successfully!!!");
+        } 
+        populateTable();
+        
+    }//GEN-LAST:event_btnProcessActionPerformed
+
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        // TODO add your handling code here:
+        int row = tblRequests.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        FinanceRequest fReq=(FinanceRequest)tblRequests.getValueAt(row, 1);
+        if(fReq.getStatus().equalsIgnoreCase("Rejected")){
+            JOptionPane.showMessageDialog(null, "Request is rejected already", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(fReq.getStatus().equalsIgnoreCase("Accepted")){
+            JOptionPane.showMessageDialog(null, "Request is accepted already", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(fReq.getStatus().equalsIgnoreCase("Processed - Sent to Distributor")){
+            JOptionPane.showMessageDialog(null, "Request is processed already", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+        
+        
+        fReq.setStatus("Rejected");
+//        dist.getFinanceRequestDirectory().addFinanceRequest(fReq);
+        JOptionPane.showMessageDialog(null, "Request Rejected!!!");
+        } 
+        populateTable();
+    }//GEN-LAST:event_btnRejectActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
-    private javax.swing.JButton btnCompleted;
     private javax.swing.JButton btnProcess;
     private javax.swing.JButton btnReject;
-    private javax.swing.JComboBox<String> facilitatorJComboBox;
+    private javax.swing.JComboBox distributorJComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRequests;

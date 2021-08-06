@@ -15,7 +15,6 @@ import Business.Role.GOVTEnterpriseAdmin;
 import Business.UserAccount.UserAccount;
 import UserInterface.User.UserRegistrationJPanel;
 import java.awt.CardLayout;
-import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -80,8 +79,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        loginJPanel.setBackground(new java.awt.Color(0, 153, 204));
-
         lblUserName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblUserName.setText("User Name");
 
@@ -100,54 +97,23 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnLogin.setBackground(new java.awt.Color(204, 204, 255));
-        btnLogin.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         btnLogin.setText("Log in");
-        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnLoginMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnLoginMouseExited(evt);
-            }
-        });
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
 
-        btnLogOut.setBackground(new java.awt.Color(204, 204, 255));
-        btnLogOut.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnLogOut.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         btnLogOut.setText("Log out");
-        btnLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnLogOutMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnLogOutMouseExited(evt);
-            }
-        });
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogOutActionPerformed(evt);
             }
         });
 
-        btnRegister.setBackground(new java.awt.Color(204, 204, 255));
-        btnRegister.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnRegister.setText("Register");
-        btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRegisterMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnRegisterMouseExited(evt);
-            }
-        });
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
@@ -169,35 +135,34 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblUserName)
                         .addGap(11, 11, 11))
-                    .addComponent(btnRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(loginJPanelLayout.createSequentialGroup()
                         .addComponent(lblPassword)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         loginJPanelLayout.setVerticalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginJPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(36, 36, 36)
                 .addComponent(lblUserName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblPassword)
                 .addGap(1, 1, 1)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogOut)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegister)
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addContainerGap(458, Short.MAX_VALUE))
         );
 
         splitPanel.setLeftComponent(loginJPanel);
 
-        workSpaceJPanel.setBackground(new java.awt.Color(255, 255, 255));
         workSpaceJPanel.setLayout(new java.awt.CardLayout());
         splitPanel.setRightComponent(workSpaceJPanel);
 
@@ -278,7 +243,7 @@ public class MainJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Invalid credentials");
             return;
         } else {
-            loginJPanel.setVisible(false);
+            loginJPanel.setVisible(true);
             workSpaceJPanel.setVisible(true);
             switchPanel();
 //            container.setVisible(true);
@@ -305,38 +270,6 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout = (CardLayout) workSpaceJPanel.getLayout();
         layout.next(workSpaceJPanel);
     }//GEN-LAST:event_btnRegisterActionPerformed
-
-    private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
-        // TODO add your handling code here:
-        btnLogin.setBackground(new Color(255, 255, 255));
-        btnLogin.setForeground(new Color(0,204,255));
-        
-    }//GEN-LAST:event_btnLoginMouseEntered
-
-    private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
-        // TODO add your handling code here:
-        btnLogin.setBackground(new Color(204,204,255));
-        btnLogin.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_btnLoginMouseExited
-
-    private void btnLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogOutMouseEntered
-        // TODO add your handling code here:
-        btnLogOut.setBackground(new Color(255, 255, 255));
-        btnLogOut.setForeground(new Color(0,204,255));
-    }//GEN-LAST:event_btnLogOutMouseEntered
-
-    private void btnLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogOutMouseExited
-        // TODO add your handling code here:
-        btnLogOut.setBackground(new Color(204,204,255));
-    }//GEN-LAST:event_btnLogOutMouseExited
-
-    private void btnRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegisterMouseEntered
-
-    private void btnRegisterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegisterMouseExited
 
     /**
      * @param args the command line arguments

@@ -7,6 +7,7 @@ package Business.ExpertTherapist;
 
 import Business.Organization.Organization;
 import Business.Role.Role;
+import Business.WorkQueue.RequestDirectory;
 
 /**
  *
@@ -16,6 +17,7 @@ public class ExpertTherapist extends Business.Person.Person{
 
      private String expertise;
      private Organization org;
+     private RequestDirectory requestDirectory;
     public ExpertTherapist(String name, String contactNumber, String zipcode, String city, String gender, String userName, String password, String dateOfBirthe, String state, String country, String email, Role role, String expertise, Organization org) {
         super(name, contactNumber, zipcode, city, gender, userName, password, dateOfBirthe, state, country, email, role);
         this.expertise = expertise;
@@ -43,7 +45,12 @@ public class ExpertTherapist extends Business.Person.Person{
         return getName();
     }
     
-    
+     public RequestDirectory getRequestDirectory() {
+        if(requestDirectory == null){
+            requestDirectory = new RequestDirectory();
+        }
+        return requestDirectory;
+    }
     
     
 }

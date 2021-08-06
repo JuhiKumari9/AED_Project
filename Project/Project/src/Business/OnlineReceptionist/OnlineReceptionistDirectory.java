@@ -31,6 +31,15 @@ public class OnlineReceptionistDirectory {
     
     }
     
-    
+    public OnlineReceptionist findUserByUserName(String username){
+        OnlineReceptionist user = null;
+        
+        for(OnlineReceptionist usr: onlineReceptionistList){
+        if(usr.getUsername().equalsIgnoreCase(username)){
+            user=usr;
+        }
+        }
+        return user;
+     }
     
 }

@@ -22,12 +22,12 @@ public class GovernmentRequestDirectory {
         return governmentRequestList;
     }
     
-    private void addGovernmentRequest(GovernmentRequest request){
+    public void addGovernmentRequest(GovernmentRequest request){
         governmentRequestList.add(request);
     
     }
     
-     private void removeGovernmentRequest(GovernmentRequest request){
+     public void removeGovernmentRequest(GovernmentRequest request){
         governmentRequestList.remove(request);
     
     }

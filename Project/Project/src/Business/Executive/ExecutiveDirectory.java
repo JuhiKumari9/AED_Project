@@ -31,4 +31,15 @@ public class ExecutiveDirectory {
         executiveList.remove(gt);
     
     }
+     
+     public Executive findUserByUserName(String username){
+        Executive user = null;
+        
+        for(Executive usr: executiveList){
+        if(usr.getUsername().equalsIgnoreCase(username)){
+            user=usr;
+        }
+        }
+        return user;
+     }
 }

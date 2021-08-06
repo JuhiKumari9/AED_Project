@@ -87,7 +87,7 @@ public class FinanceAdminManageEmployeesJPanel extends javax.swing.JPanel {
         for(Organization org:organizationDir.getOrgList()){
         for (BGAdmin onl : org.getBgAdminDirectory().getBgAdminList()){
             Object[] row = new Object[5];
-            row[0] = onl;         
+            row[0] = onl;
             row[1] = onl.getContactNumber();
             row[2] = onl.getZipcode();
             row[3] = onl.getEmail();

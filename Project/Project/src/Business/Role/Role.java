@@ -42,7 +42,8 @@ public abstract class Role {
         GeneralTherapistRole("General Physician"),
         ExpertTherapistRole("Expert Therapist"),
         TestDefinerRole("Test Definer"),
-        TestReporterRole("Test Reporter")
+        TestReporterRole("Test Reporter"),
+        TestEnterpriseAdminRole("Test Enterprise")
         ;
         private String value;
         private RoleType(String value) {

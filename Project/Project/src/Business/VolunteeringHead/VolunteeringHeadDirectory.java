@@ -30,4 +30,15 @@ public class VolunteeringHeadDirectory {
         volunteersList.remove(gt);
     
     }
+     
+     public VolunteeringHead findUserByUserName(String username){
+        VolunteeringHead user = null;
+        
+        for(VolunteeringHead usr: volunteersList){
+        if(usr.getUsername().equalsIgnoreCase(username)){
+            user=usr;
+        }
+        }
+        return user;
+     }
 }

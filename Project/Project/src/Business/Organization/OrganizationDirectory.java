@@ -38,17 +38,26 @@ public class OrganizationDirectory {
         }else if (type.getValue().equals(Type.OnlineReceptionistOrganization.getValue())){
             organization = new OnlineReceptionistOrganization(name); 
             orgList.add(organization);
-        }else if (type.getValue().equals(Type.Depression.getValue())){
-            organization = new Depression(name); 
+        }else if (type.getValue().equals(Type.TestDefiner.getValue())){
+            organization = new TestDefinerOrganization(name); 
             orgList.add(organization);
-        }else if (type.getValue().equals(Type.Anxiety.getValue())){
-            organization = new Anxiety(name); 
+        }else if (type.getValue().equals(Type.TestReporter.getValue())){
+            organization = new TestReporterOrganization(name); 
             orgList.add(organization);
-        }else if (type.getValue().equals(Type.YouthMentalHealth.getValue())){
-            organization = new YouthMentalHealth(name); 
+        } else if(type.getValue().equals(Type.BackgroundCheckOrganization.getValue())){
+            organization = new BackgroundCheckOrganization(name);
             orgList.add(organization);
-        } else if (type.getValue().equals(Type.PTSD.getValue())){
-            organization = new PTSD(name); 
+        } else if(type.getValue().equals(Type.RationingOrganization.getValue())){
+            organization = new RationingOrganization(name);
+            orgList.add(organization);
+        }else if(type.getValue().equals(Type.VolunteerOrganization.getValue())){
+            organization = new VolunteerOrganization(name);
+            orgList.add(organization);
+        }else if(type.getValue().equals(Type.GOVTRepresentativeOrganization.getValue())){
+            organization = new GOVTRepresentativeOrganization(name);
+            orgList.add(organization);
+        }else if(type.getValue().equals(Type.ExecutiveOrganization.getValue())){
+            organization = new ExecutiveOrganization(name);
             orgList.add(organization);
         }
         return organization;

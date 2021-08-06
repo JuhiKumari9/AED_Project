@@ -30,4 +30,15 @@ public class DistributorDirectory {
         distributorList.remove(gt);
     
     }
+     
+      public Distributor findUserByUserName(String username){
+        Distributor user = null;
+        
+        for(Distributor usr: distributorList){
+        if(usr.getUsername().equalsIgnoreCase(username)){
+            user=usr;
+        }
+        }
+        return user;
+     }
 }

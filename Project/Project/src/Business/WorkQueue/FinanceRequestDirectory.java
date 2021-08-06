@@ -21,12 +21,12 @@ public class FinanceRequestDirectory {
         return financeRequestList;
     }
     
-    private void addFinanceRequest(FinanceRequest request){
+    public void addFinanceRequest(FinanceRequest request){
         financeRequestList.add(request);
     
     }
     
-     private void removeFinanceRequest(FinanceRequest request){
+     public void removeFinanceRequest(FinanceRequest request){
         financeRequestList.remove(request);
     
     }

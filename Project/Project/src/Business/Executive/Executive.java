@@ -9,6 +9,8 @@ import Business.Organization.Organization;
 import Business.Person.Person;
 import Business.Role.Role;
 import Business.WorkQueue.GovernmentRequestDirectory;
+import Business.WorkQueue.RationRequestDirectory;
+import Business.WorkQueue.VolunteerRequestDirectory;
 
 /**
  *
@@ -17,6 +19,8 @@ import Business.WorkQueue.GovernmentRequestDirectory;
 public class Executive extends Person{
     private Organization org;
     private GovernmentRequestDirectory governmentRequestDirectory;
+    private RationRequestDirectory rationRequestDirectory;
+    private VolunteerRequestDirectory volunteerRequestDirectory;
 
     public Executive(String name, String contactNumber, String zipcode, String city, String gender, String userName, String password, String dateOfBirthe, String state, String country, String email, Role role, Organization org) {
         super(name, contactNumber, zipcode, city, gender, userName, password, dateOfBirthe, state, country, email, role);
@@ -36,6 +40,20 @@ public class Executive extends Person{
             governmentRequestDirectory = new GovernmentRequestDirectory();
         }
         return governmentRequestDirectory;
+    }
+    
+     public RationRequestDirectory getRationRequestDirectory(){
+         if(rationRequestDirectory == null){
+            rationRequestDirectory = new RationRequestDirectory();
+        }
+        return rationRequestDirectory;
+    }
+     
+      public VolunteerRequestDirectory getVolunteerRequestDirectory(){
+         if(volunteerRequestDirectory == null){
+            volunteerRequestDirectory = new VolunteerRequestDirectory();
+        }
+        return volunteerRequestDirectory;
     }
     
     
